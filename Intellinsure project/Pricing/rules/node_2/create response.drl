@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.brl:ActionRule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.brl="http://ilog.rules.studio/model/brl.ecore">
+  <name>create response</name>
+  <uuid>a82f9d13-0248-44d6-9416-98af6ba7f7fd</uuid>
+  <locale>en_US</locale>
+  <definition><![CDATA[set decision to a new auto quote response where
+        the discounts are discounts, 
+        the surcharges are surcharges, 
+        -- the messages are <message>, 
+        the total price is price + the total value of surcharges - the total value of discounts ,  
+        the vehicle quotes are 'vehicle quote items' ;
+]]></definition>
+</ilog.rules.studio.model.brl:ActionRule>

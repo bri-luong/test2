@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.ibm.rules.studio.model.decisionmodel:DecisionModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:com.ibm.rules.studio.model.decisionmodel="http://com.ibm.rules.studio/model/decisionmodel.ecore">
+  <name>decisionModel</name>
+  <uuid>b3a24290-3945-45e1-a147-4ade91cc9741</uuid>
+  <locale>en_US</locale>
+  <definition><definitions xmlns="http://www.omg.org/spec/DMN/20180521/MODEL/" id="decisions" name="diagram" namespace="">
+    <extensionElements>
+        <locale xmlns="http://www.ibm.com/spec/ODM/dmn.xsd" id="en_US"/>
+    </extensionElements>
+    <inputData id="node_0" name="vehicle coverage request">
+        <extensionElements>
+            <initialization xmlns="http://www.ibm.com/spec/ODM/dmn.xsd">
+                <output bomType="VehicleCoverageRequest" collection="false" name="vehicle coverage request"/>
+            </initialization>
+        </extensionElements>
+        <variable id="node_0_ii" name="vehicle coverage request" typeRef="VehicleCoverageRequest"/>
+    </inputData>
+    <decision id="node_1" name="vehicle coverage quote">
+        <extensionElements>
+            <ruleset xmlns="http://www.ibm.com/spec/ODM/dmn.xsd" conflictResolution="first">
+                <input bomType="VehicleCoverageRequest" collection="false" name="vehicle coverage request"/>
+                <input bomType="CoverageQuoteItem" collection="true" name="Coverage quotes"/>
+                <output bomType="VehicleQuoteItem" collection="false" name="vehicle coverage quote"/>
+                <rule defaultRule="false" href="node_1/create%20quote%20item.drl" kind="BusinessRule" name="create quote item"/>
+            </ruleset>
+        </extensionElements>
+        <variable id="node_1_ii" name="vehicle coverage quote" typeRef="VehicleQuoteItem"/>
+        <informationRequirement>
+            <requiredInput href="#node_0"/>
+        </informationRequirement>
+        <informationRequirement>
+            <requiredInput href="#node_3"/>
+        </informationRequirement>
+    </decision>
+    <inputData id="node_2" name="state of residence">
+        <extensionElements>
+            <initialization xmlns="http://www.ibm.com/spec/ODM/dmn.xsd">
+                <output bomType="java.lang.String" collection="false" name="state of residence"/>
+            </initialization>
+        </extensionElements>
+        <variable id="node_2_ii" name="state of residence" typeRef="java.lang.String"/>
+    </inputData>
+    <decision id="node_3" name="Coverage quotes">
+        <extensionElements>
+            <ruleset xmlns="http://www.ibm.com/spec/ODM/dmn.xsd" conflictResolution="collect">
+                <input bomType="VehicleCoverageRequest" collection="false" name="vehicle coverage request"/>
+                <input bomType="java.lang.String" collection="false" name="state of residence"/>
+                <input bomType="ilog.rules.brl.SimpleDate" collection="false" name="today"/>
+                <input bomType="AutoQuoteRequest" collection="false" name="auto quote request"/>
+                <output bomType="CoverageQuoteItem" collection="true" name="Coverage quotes"/>
+                <rule defaultRule="false" href="node_3/compute%20quotes.drl" kind="BusinessRule" name="compute quotes"/>
+            </ruleset>
+        </extensionElements>
+        <variable id="node_3_ii" name="Coverage quotes" typeRef="CoverageQuoteItem[]"/>
+        <informationRequirement>
+            <requiredInput href="#node_0"/>
+        </informationRequirement>
+        <informationRequirement>
+            <requiredInput href="#node_2"/>
+        </informationRequirement>
+        <informationRequirement>
+            <requiredInput href="#node_5"/>
+        </informationRequirement>
+        <informationRequirement>
+            <requiredInput href="#node_7"/>
+        </informationRequirement>
+        <knowledgeRequirement>
+            <requiredKnowledge href="#node_8"/>
+        </knowledgeRequirement>
+    </decision>
+    <inputData id="node_5" name="today">
+        <extensionElements>
+            <initialization xmlns="http://www.ibm.com/spec/ODM/dmn.xsd">
+                <output bomType="ilog.rules.brl.SimpleDate" collection="false" name="today"/>
+            </initialization>
+        </extensionElements>
+        <variable id="node_5_ii" name="today" typeRef="ilog.rules.brl.SimpleDate"/>
+    </inputData>
+    <inputData id="node_7" name="auto quote request">
+        <extensionElements>
+            <initialization xmlns="http://www.ibm.com/spec/ODM/dmn.xsd">
+                <output bomType="AutoQuoteRequest" collection="false" name="auto quote request"/>
+            </initialization>
+        </extensionElements>
+        <variable id="node_7_ii" name="auto quote request" typeRef="AutoQuoteRequest"/>
+    </inputData>
+    <businessKnowledgeModel id="node_8" name="Coverage quote">
+        <extensionElements>
+            <properties xmlns="http://www.ibm.com/spec/ODM/dmn.xsd">
+                <property name="ads.designer.bkKind"><![CDATA[decision]]></property>
+            </properties>
+        </extensionElements>
+        <variable name="Coverage quote" typeRef="CoverageQuoteItem"/>
+        <encapsulatedLogic typeRef="CoverageQuoteItem">
+            <formalParameter name="coverageRequest" typeRef="CoverageItem"/>
+            <formalParameter name="vehicleCoverageRequest" typeRef="VehicleCoverageRequest"/>
+            <formalParameter name="stateOfResidence" typeRef="java.lang.String"/>
+            <formalParameter name="today" typeRef="ilog.rules.brl.SimpleDate"/>
+            <formalParameter name="autoQuoteRequest" typeRef="AutoQuoteRequest"/>
+            <context>
+                <contextEntry>
+                    <variable name="class"/>
+                    <literalExpression>
+                        <text>"decisions.intellinsure.intellinsure_project.coveragequote.CoverageQuote"</text>
+                    </literalExpression>
+                </contextEntry>
+                <contextEntry>
+                    <variable name="method signature"/>
+                    <literalExpression>
+                        <text>"run(CoverageItem,VehicleCoverageRequest,java.lang.String,ilog.rules.brl.SimpleDate,AutoQuoteRequest)"</text>
+                    </literalExpression>
+                </contextEntry>
+            </context>
+        </encapsulatedLogic>
+    </businessKnowledgeModel>
+</definitions></definition>
+</com.ibm.rules.studio.model.decisionmodel:DecisionModel>

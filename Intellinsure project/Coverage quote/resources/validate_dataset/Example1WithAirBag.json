@@ -1,0 +1,143 @@
+{
+  "coverageRequest": {
+    "coverage type": "liability",
+    "max limit": 30000,
+    "min limit": 15000,
+    "deductible": 0
+  },
+  "vehicleCoverageRequest": {
+    "vehicle": {
+      "vehicle identification number": "VIN-1",
+      "vehicle type": "SUV",
+      "air bag type": "driver passenger side",
+      "anti lock brakes": true,
+      "day time running lights": false,
+      "make": "Ford",
+      "model": "Taurus",
+      "registration date": "1999-01-01",
+      "value": 35000
+    },
+    "usages": [
+      {
+        "driver id": 1,
+        "percentage usage": 100
+      }
+    ],
+    "coverages": [
+      {
+        "coverage type": "liability",
+        "max limit": 30000,
+        "min limit": 15000,
+        "deductible": 0
+      },
+      {
+        "coverage type": "uninsured and underinsured",
+        "deductible": 0,
+        "max limit": 30000,
+        "min limit": 15000
+      },
+      {
+        "coverage type": "comprehensive",
+        "deductible": 1000,
+        "max limit": 0,
+        "min limit": 0
+      },
+      {
+        "coverage type": "collision",
+        "deductible": 1000,
+        "max limit": 0,
+        "min limit": 0
+      },
+      {
+        "coverage type": "mechanical breakdown",
+        "deductible": 0,
+        "max limit": 0,
+        "min limit": 0
+      }
+    ],
+    "annual mileage": 5000,
+    "one way driving distance": "5.0"
+  },
+  "stateOfResidence": "NJ",
+  "today": "2020-06-09",
+  "autoQuoteRequest": {
+    "drivers": [
+      {
+        "driver id": 1,
+        "first name": "John",
+        "last name": "Doe",
+        "age": 24,
+        "state of residence": "NJ",
+        "occupation": "Engineer",
+        "gender": "male",
+        "graduated": false,
+        "married": false,
+        "good student certificate": false,
+        "driving license number": "123456789",
+        "first driving license date": "1999-03-20",
+        "completed drivers education course": true,
+        "license suspended or revoked": false,
+        "number of accidents": 1,
+        "number of traffic tickets": 0,
+        "convicted of a DUI": false,
+        "full time student": false,
+        "vehicle vandalized or stolen": false
+      }
+    ],
+    "vehicle coverages": [
+      {
+        "vehicle": {
+          "vehicle identification number": "VIN-1",
+          "vehicle type": "sedan",
+          "air bag type": "driver",
+          "anti lock brakes": true,
+          "day time running lights": false,
+          "make": "Ford",
+          "model": "Taurus",
+          "registration date": "1999-01-01",
+          "value": 35000
+        },
+        "usages": [
+          {
+            "driver id": 1,
+            "percentage usage": 100
+          }
+        ],
+        "coverages": [
+          {
+            "coverage type": "liability",
+            "max limit": 30000,
+            "min limit": 15000,
+            "deductible": 0
+          },
+          {
+            "coverage type": "uninsured and underinsured",
+            "deductible": 0,
+            "max limit": 30000,
+            "min limit": 15000
+          },
+          {
+            "coverage type": "comprehensive",
+            "deductible": 1000,
+            "max limit": 0,
+            "min limit": 0
+          },
+          {
+            "coverage type": "collision",
+            "deductible": 1000,
+            "max limit": 0,
+            "min limit": 0
+          },
+          {
+            "coverage type": "mechanical breakdown",
+            "deductible": 0,
+            "max limit": 0,
+            "min limit": 0
+          }
+        ],
+        "annual mileage": 5000,
+        "one way driving distance": "5.0"
+      }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.brl:ActionRule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.brl="http://ilog.rules.studio/model/brl.ecore">
+  <name>High Risk Driver</name>
+  <uuid>16d37bfc-eebb-4d2d-8c2b-01adb33f221b</uuid>
+  <locale>en_US</locale>
+  <definition><![CDATA[for each driver, in the drivers of 'validated request' 
+definitions
+    set 'name' to the first name of this driver ;
+if
+    the number of elements in 'high risk reasons' is more than 0
+then
+set decision to a new eligibility response where
+        eligible is false, 
+        the error messages are 'high risk reasons', 
+        the main message is "Eligibility Error: The driver, " + name + " is considered as a high risk driver" ;
+]]></definition>
+</ilog.rules.studio.model.brl:ActionRule>

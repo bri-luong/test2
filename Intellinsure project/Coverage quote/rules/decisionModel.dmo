@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.ibm.rules.studio.model.decisionmodel:DecisionModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:com.ibm.rules.studio.model.decisionmodel="http://com.ibm.rules.studio/model/decisionmodel.ecore">
+  <name>decisionModel</name>
+  <uuid>8ffe5a73-1eb6-4327-9069-0a98cdde1271</uuid>
+  <locale>en_US</locale>
+  <definition><definitions xmlns="http://www.omg.org/spec/DMN/20180521/MODEL/" id="decisions" name="diagram" namespace="">
+    <extensionElements>
+        <locale xmlns="http://www.ibm.com/spec/ODM/dmn.xsd" id="en_US"/>
+    </extensionElements>
+    <inputData id="node_0" name="coverage request">
+        <extensionElements>
+            <initialization xmlns="http://www.ibm.com/spec/ODM/dmn.xsd">
+                <output bomType="CoverageItem" collection="false" name="coverage request"/>
+            </initialization>
+        </extensionElements>
+        <variable id="node_0_ii" name="coverage request" typeRef="CoverageItem"/>
+    </inputData>
+    <decision id="node_1" name="base premium">
+        <extensionElements>
+            <ruleset xmlns="http://www.ibm.com/spec/ODM/dmn.xsd" conflictResolution="first">
+                <input bomType="CoverageItem" collection="false" name="coverage request"/>
+                <input bomType="VehicleCoverageRequest" collection="false" name="vehicle coverage request"/>
+                <input bomType="java.lang.String" collection="false" name="state of residence"/>
+                <output bomType="LineItem" collection="false" name="base premium"/>
+                <rule defaultRule="false" href="node_1/Collision%20NY.dmt" kind="DecisionTable" name="Collision NY"/>
+                <rule defaultRule="false" href="node_1/Collision.dmt" kind="DecisionTable" name="Collision"/>
+                <rule defaultRule="false" href="node_1/Comprehensive%20VA.dmt" kind="DecisionTable" name="Comprehensive VA"/>
+                <rule defaultRule="false" href="node_1/Comprehensive.dmt" kind="DecisionTable" name="Comprehensive"/>
+                <rule defaultRule="false" href="node_1/Liability%20DE.dmt" kind="DecisionTable" name="Liability DE"/>
+                <rule defaultRule="false" href="node_1/Liability.dmt" kind="DecisionTable" name="Liability"/>
+                <rule defaultRule="false" href="node_1/Mechanical%20Breakdown.dmt" kind="DecisionTable" name="Mechanical Breakdown"/>
+                <rule defaultRule="false" href="node_1/Uninsured%20and%20Underinsured.dmt" kind="DecisionTable" name="Uninsured and Underinsured"/>
+            </ruleset>
+        </extensionElements>
+        <variable id="node_1_ii" name="base premium" typeRef="LineItem"/>
+        <informationRequirement>
+            <requiredInput href="#node_0"/>
+        </informationRequirement>
+        <informationRequirement>
+            <requiredInput href="#node_2"/>
+        </informationRequirement>
+        <informationRequirement>
+            <requiredInput href="#node_3"/>
+        </informationRequirement>
+    </decision>
+    <inputData id="node_2" name="vehicle coverage request">
+        <extensionElements>
+            <initialization xmlns="http://www.ibm.com/spec/ODM/dmn.xsd">
+                <output bomType="VehicleCoverageRequest" collection="false" name="vehicle coverage request"/>
+            </initialization>
+        </extensionElements>
+        <variable id="node_2_ii" name="vehicle coverage request" typeRef="VehicleCoverageRequest"/>
+    </inputData>
+    <inputData id="node_3" name="state of residence">
+        <extensionElements>
+            <initialization xmlns="http://www.ibm.com/spec/ODM/dmn.xsd">
+                <output bomType="java.lang.String" collection="false" name="state of residence"/>
+            </initialization>
+        </extensionElements>
+        <variable id="node_3_ii" name="state of residence" typeRef="java.lang.String"/>
+    </inputData>
+    <decision id="node_4" name="coverage quote">
+        <extensionElements>
+            <ruleset xmlns="http://www.ibm.com/spec/ODM/dmn.xsd" conflictResolution="first">
+                <input bomType="CoverageItem" collection="false" name="coverage request"/>
+                <input bomType="LineItem" collection="false" name="base premium"/>
+                <input bomType="LineItem" collection="true" name="discounts"/>
+                <input bomType="LineItem" collection="true" name="surcharges"/>
+                <output bomType="CoverageQuoteItem" collection="false" name="coverage quote"/>
+                <rule defaultRule="false" href="node_4/create%20coverage%20quote.drl" kind="BusinessRule" name="create coverage quote"/>
+            </ruleset>
+        </extensionElements>
+        <variable id="node_4_ii" name="coverage quote" typeRef="CoverageQuoteItem"/>
+        <informationRequirement>
+            <requiredInput href="#node_0"/>
+        </informationRequirement>
+        <informationRequirement>
+            <requiredInput href="#node_1"/>
+        </informationRequirement>
+        <informationRequirement>
+            <requiredInput href="#node_5"/>
+        </informationRequirement>
+        <informationRequirement>
+            <requiredInput href="#node_6"/>
+        </informationRequirement>
+    </decision>
+    <decision id="node_5" name="discounts">
+        <extensionElements>
+            <ruleset xmlns="http://www.ibm.com/spec/ODM/dmn.xsd" conflictResolution="collect">
+                <input bomType="CoverageItem" collection="false" name="coverage request"/>
+                <input bomType="LineItem" collection="false" name="base premium"/>
+                <input bomType="VehicleCoverageRequest" collection="false" name="vehicle coverage request"/>
+                <input bomType="java.lang.String" collection="false" name="state of residence"/>
+                <input bomType="ilog.rules.brl.SimpleDate" collection="false" name="today"/>
+                <output bomType="LineItem" collection="true" name="discounts"/>
+                <rule defaultRule="false" href="node_5/Anti-lock%20Brakes%20Discount%20for%20NJ.drl" kind="BusinessRule" name="Anti-lock Brakes Discount for NJ"/>
+                <rule defaultRule="false" href="node_5/Anti-lock%20Brakes%20Discount.drl" kind="BusinessRule" name="Anti-lock Brakes Discount"/>
+                <rule defaultRule="false" href="node_5/Pickup%20Truck%20Discount.drl" kind="BusinessRule" name="Pickup Truck Discount"/>
+                <rule defaultRule="false" href="node_5/SUV%20Truck%20Discount.drl" kind="BusinessRule" name="SUV Truck Discount"/>
+                <rule defaultRule="false" href="node_5/Airbag%20Discount%20for%20NJ.dmt" kind="DecisionTable" name="Airbag Discount for NJ"/>
+                <rule defaultRule="false" href="node_5/Airbag%20Discount.dmt" kind="DecisionTable" name="Airbag Discount"/>
+                <rule defaultRule="false" href="node_5/New%20Vehicle%20Discount.drl" kind="BusinessRule" name="New Vehicle Discount"/>
+                <rule defaultRule="true" href="node_5/output-default-setting.drl" kind="BusinessRule" name="output-default-setting"/>
+            </ruleset>
+        </extensionElements>
+        <variable id="node_5_ii" name="discounts" typeRef="LineItem[]"/>
+        <informationRequirement>
+            <requiredInput href="#node_0"/>
+        </informationRequirement>
+        <informationRequirement>
+            <requiredInput href="#node_1"/>
+        </informationRequirement>
+        <informationRequirement>
+            <requiredInput href="#node_2"/>
+        </informationRequirement>
+        <informationRequirement>
+            <requiredInput href="#node_3"/>
+        </informationRequirement>
+        <informationRequirement>
+            <requiredInput href="#node_7"/>
+        </informationRequirement>
+    </decision>
+    <decision id="node_6" name="surcharges">
+        <extensionElements>
+            <ruleset xmlns="http://www.ibm.com/spec/ODM/dmn.xsd" conflictResolution="collect">
+                <input bomType="CoverageItem" collection="false" name="coverage request"/>
+                <input bomType="LineItem" collection="false" name="base premium"/>
+                <input bomType="VehicleCoverageRequest" collection="false" name="vehicle coverage request"/>
+                <input bomType="java.lang.String" collection="false" name="state of residence"/>
+                <input bomType="Driver" collection="true" name="selected drivers"/>
+                <output bomType="LineItem" collection="true" name="surcharges"/>
+                <rule defaultRule="false" href="node_6/Collision%20-%20Driver%20Profile.dmt" kind="DecisionTable" name="Collision - Driver Profile"/>
+                <rule defaultRule="false" href="node_6/Collision%20-%20Sports%20Coupe%20Surcharge.drl" kind="BusinessRule" name="Collision - Sports Coupe Surcharge"/>
+                <rule defaultRule="false" href="node_6/Comprehensive%20-%20SUV%20Surcharge%20for%20NJ.drl" kind="BusinessRule" name="Comprehensive - SUV Surcharge for NJ"/>
+                <rule defaultRule="false" href="node_6/Comprehensive%20-%20SUV%20Surcharge.drl" kind="BusinessRule" name="Comprehensive - SUV Surcharge"/>
+                <rule defaultRule="false" href="node_6/Comprehensive%20-%20Sedan%20Surcharge.drl" kind="BusinessRule" name="Comprehensive - Sedan Surcharge"/>
+                <rule defaultRule="false" href="node_6/Liability%20-%20SUV%20Surcharge.drl" kind="BusinessRule" name="Liability - SUV Surcharge"/>
+                <rule defaultRule="false" href="node_6/Mechanical%20Breakdown%20-%20Old%20Vehicle%20Surcharge.drl" kind="BusinessRule" name="Mechanical Breakdown - Old Vehicle Surcharge"/>
+                <rule defaultRule="true" href="node_6/output-default-setting.drl" kind="BusinessRule" name="output-default-setting"/>
+            </ruleset>
+        </extensionElements>
+        <variable id="node_6_ii" name="surcharges" typeRef="LineItem[]"/>
+        <informationRequirement>
+            <requiredInput href="#node_0"/>
+        </informationRequirement>
+        <informationRequirement>
+            <requiredInput href="#node_1"/>
+        </informationRequirement>
+        <informationRequirement>
+            <requiredInput href="#node_2"/>
+        </informationRequirement>
+        <informationRequirement>
+            <requiredInput href="#node_3"/>
+        </informationRequirement>
+        <informationRequirement>
+            <requiredInput href="#node_9"/>
+        </informationRequirement>
+    </decision>
+    <inputData id="node_7" name="today">
+        <extensionElements>
+            <initialization xmlns="http://www.ibm.com/spec/ODM/dmn.xsd">
+                <output bomType="ilog.rules.brl.SimpleDate" collection="false" name="today"/>
+            </initialization>
+        </extensionElements>
+        <variable id="node_7_ii" name="today" typeRef="ilog.rules.brl.SimpleDate"/>
+    </inputData>
+    <inputData id="node_8" name="auto quote request">
+        <extensionElements>
+            <initialization xmlns="http://www.ibm.com/spec/ODM/dmn.xsd">
+                <output bomType="AutoQuoteRequest" collection="false" name="auto quote request"/>
+            </initialization>
+        </extensionElements>
+        <variable id="node_8_ii" name="auto quote request" typeRef="AutoQuoteRequest"/>
+    </inputData>
+    <decision id="node_9" name="selected drivers">
+        <extensionElements>
+            <ruleset xmlns="http://www.ibm.com/spec/ODM/dmn.xsd" conflictResolution="collect">
+                <input bomType="VehicleCoverageRequest" collection="false" name="vehicle coverage request"/>
+                <input bomType="AutoQuoteRequest" collection="false" name="auto quote request"/>
+                <output bomType="Driver" collection="true" name="selected drivers"/>
+                <rule defaultRule="false" href="node_9/select%20driver.drl" kind="BusinessRule" name="select driver"/>
+            </ruleset>
+        </extensionElements>
+        <variable id="node_9_ii" name="selected drivers" typeRef="Driver[]"/>
+        <informationRequirement>
+            <requiredInput href="#node_2"/>
+        </informationRequirement>
+        <informationRequirement>
+            <requiredInput href="#node_8"/>
+        </informationRequirement>
+    </decision>
+</definitions></definition>
+</com.ibm.rules.studio.model.decisionmodel:DecisionModel>

@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.ibm.rules.studio.model.decisionmodel:DecisionModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:com.ibm.rules.studio.model.decisionmodel="http://com.ibm.rules.studio/model/decisionmodel.ecore">
+  <name>decisionModel</name>
+  <uuid>53db9620-8455-4be5-9017-a41d8c08ccf6</uuid>
+  <locale>en_US</locale>
+  <definition><definitions xmlns="http://www.omg.org/spec/DMN/20180521/MODEL/" id="decisions" name="diagram" namespace="">
+    <extensionElements>
+        <locale xmlns="http://www.ibm.com/spec/ODM/dmn.xsd" id="en_US"/>
+    </extensionElements>
+    <inputData id="node_0" name="request">
+        <extensionElements>
+            <initialization xmlns="http://www.ibm.com/spec/ODM/dmn.xsd">
+                <output bomType="AutoQuoteRequest" collection="false" name="request"/>
+            </initialization>
+        </extensionElements>
+        <variable id="node_0_ii" name="request" typeRef="AutoQuoteRequest"/>
+    </inputData>
+    <decision id="node_1" name="response">
+        <extensionElements>
+            <ruleset xmlns="http://www.ibm.com/spec/ODM/dmn.xsd" conflictResolution="first">
+                <input bomType="ilog.rules.brl.SimpleDate" collection="false" name="today"/>
+                <input bomType="EligibilityResponse" collection="false" name="eligibility result"/>
+                <input bomType="AutoQuoteRequest" collection="false" name="validated request"/>
+                <output bomType="AutoQuoteResponse" collection="false" name="response"/>
+                <rule defaultRule="false" href="node_1/create%20auto%20quote%20response.drl" kind="BusinessRule" name="create auto quote response"/>
+            </ruleset>
+        </extensionElements>
+        <variable id="node_1_ii" name="response" typeRef="AutoQuoteResponse"/>
+        <informationRequirement>
+            <requiredInput href="#node_2"/>
+        </informationRequirement>
+        <informationRequirement>
+            <requiredInput href="#node_4"/>
+        </informationRequirement>
+        <informationRequirement>
+            <requiredInput href="#node_9"/>
+        </informationRequirement>
+        <knowledgeRequirement>
+            <requiredKnowledge href="#node_3"/>
+        </knowledgeRequirement>
+    </decision>
+    <inputData id="node_2" name="today">
+        <extensionElements>
+            <initialization xmlns="http://www.ibm.com/spec/ODM/dmn.xsd">
+                <output bomType="ilog.rules.brl.SimpleDate" collection="false" name="today"/>
+            </initialization>
+        </extensionElements>
+        <variable id="node_2_ii" name="today" typeRef="ilog.rules.brl.SimpleDate"/>
+    </inputData>
+    <decision id="node_4" name="eligibility result">
+        <extensionElements>
+            <ruleset xmlns="http://www.ibm.com/spec/ODM/dmn.xsd" conflictResolution="first">
+                <input bomType="java.lang.String" collection="true" name="high risk reasons"/>
+                <input bomType="AutoQuoteRequest" collection="false" name="validated request"/>
+                <output bomType="EligibilityResponse" collection="false" name="eligibility result"/>
+                <rule defaultRule="false" href="node_4/High%20Risk%20Driver.drl" kind="BusinessRule" name="High Risk Driver"/>
+                <rule defaultRule="false" href="node_4/Too%20Old.drl" kind="BusinessRule" name="Too Old"/>
+                <rule defaultRule="false" href="node_4/Too%20Young.drl" kind="BusinessRule" name="Too Young"/>
+                <rule defaultRule="true" href="node_4/output-default-setting.drl" kind="BusinessRule" name="output-default-setting"/>
+            </ruleset>
+        </extensionElements>
+        <variable id="node_4_ii" name="eligibility result" typeRef="EligibilityResponse"/>
+        <informationRequirement>
+            <requiredInput href="#node_8"/>
+        </informationRequirement>
+        <informationRequirement>
+            <requiredInput href="#node_9"/>
+        </informationRequirement>
+    </decision>
+    <decision id="node_5" name="validition response">
+        <extensionElements>
+            <ruleset xmlns="http://www.ibm.com/spec/ODM/dmn.xsd" conflictResolution="first">
+                <input bomType="java.lang.String" collection="true" name="validation errors"/>
+                <output bomType="ValidationResponse" collection="false" name="validition response"/>
+                <rule defaultRule="false" href="node_5/create%20validation%20response.drl" kind="BusinessRule" name="create validation response"/>
+                <rule defaultRule="true" href="node_5/output-default-setting.drl" kind="BusinessRule" name="output-default-setting"/>
+            </ruleset>
+        </extensionElements>
+        <variable id="node_5_ii" name="validition response" typeRef="ValidationResponse"/>
+        <informationRequirement>
+            <requiredInput href="#node_6"/>
+        </informationRequirement>
+    </decision>
+    <decision id="node_6" name="validation errors">
+        <extensionElements>
+            <ruleset xmlns="http://www.ibm.com/spec/ODM/dmn.xsd" conflictResolution="collect">
+                <input bomType="AutoQuoteRequest" collection="false" name="request"/>
+                <output bomType="java.lang.String" collection="true" name="validation errors"/>
+                <rule defaultRule="false" href="node_6/Check%20Accidents.drl" kind="BusinessRule" name="Check Accidents"/>
+                <rule defaultRule="false" href="node_6/Check%20Age.drl" kind="BusinessRule" name="Check Age"/>
+                <rule defaultRule="false" href="node_6/Check%20Coverage%20Request.drl" kind="BusinessRule" name="Check Coverage Request"/>
+                <rule defaultRule="false" href="node_6/Check%20Min,%20Max%20Age.drl" kind="BusinessRule" name="Check Min, Max Age"/>
+                <rule defaultRule="false" href="node_6/Check%20Tickets.drl" kind="BusinessRule" name="Check Tickets"/>
+                <rule defaultRule="false" href="node_6/Check%20Total%20Usage.drl" kind="BusinessRule" name="Check Total Usage"/>
+                <rule defaultRule="true" href="node_6/output-default-setting.drl" kind="BusinessRule" name="output-default-setting"/>
+            </ruleset>
+        </extensionElements>
+        <variable id="node_6_ii" name="validation errors" typeRef="java.lang.String[]"/>
+        <informationRequirement>
+            <requiredInput href="#node_0"/>
+        </informationRequirement>
+    </decision>
+    <decision id="node_8" name="high risk reasons">
+        <extensionElements>
+            <ruleset xmlns="http://www.ibm.com/spec/ODM/dmn.xsd" conflictResolution="collect">
+                <input bomType="AutoQuoteRequest" collection="false" name="validated request"/>
+                <output bomType="java.lang.String" collection="true" name="high risk reasons"/>
+                <rule defaultRule="false" href="node_8/DUI.drl" kind="BusinessRule" name="DUI"/>
+                <rule defaultRule="false" href="node_8/Too%20Many%20Accidents.drl" kind="BusinessRule" name="Too Many Accidents"/>
+                <rule defaultRule="false" href="node_8/Too%20Many%20Tickets.dmt" kind="DecisionTable" name="Too Many Tickets"/>
+            </ruleset>
+        </extensionElements>
+        <variable id="node_8_ii" name="high risk reasons" typeRef="java.lang.String[]"/>
+        <informationRequirement>
+            <requiredInput href="#node_9"/>
+        </informationRequirement>
+    </decision>
+    <decision id="node_9" name="validated request">
+        <extensionElements>
+            <ruleset xmlns="http://www.ibm.com/spec/ODM/dmn.xsd" conflictResolution="first">
+                <input bomType="AutoQuoteRequest" collection="false" name="request"/>
+                <input bomType="java.lang.String" collection="true" name="validation errors"/>
+                <output bomType="AutoQuoteRequest" collection="false" name="validated request"/>
+                <rule defaultRule="false" href="node_9/create%20request.drl" kind="BusinessRule" name="create request"/>
+            </ruleset>
+        </extensionElements>
+        <variable id="node_9_ii" name="validated request" typeRef="AutoQuoteRequest"/>
+        <informationRequirement>
+            <requiredInput href="#node_0"/>
+        </informationRequirement>
+        <informationRequirement>
+            <requiredInput href="#node_6"/>
+        </informationRequirement>
+    </decision>
+    <decision id="node_10" name="eligibility response">
+        <extensionElements>
+            <ruleset xmlns="http://www.ibm.com/spec/ODM/dmn.xsd" conflictResolution="sequence">
+                <input bomType="EligibilityResponse" collection="false" name="eligibility result"/>
+                <output bomType="EligibilityResponse" collection="false" name="eligibility response"/>
+                <rule defaultRule="false" href="node_10/copy%20input.drl" kind="BusinessRule" name="copy input"/>
+            </ruleset>
+        </extensionElements>
+        <variable id="node_10_ii" name="eligibility response" typeRef="EligibilityResponse"/>
+        <informationRequirement>
+            <requiredInput href="#node_4"/>
+        </informationRequirement>
+    </decision>
+    <businessKnowledgeModel id="node_3" name="Pricing">
+        <extensionElements>
+            <properties xmlns="http://www.ibm.com/spec/ODM/dmn.xsd">
+                <property name="ads.designer.bkKind"><![CDATA[decision]]></property>
+            </properties>
+        </extensionElements>
+        <variable name="Pricing" typeRef="AutoQuoteResponse"/>
+        <encapsulatedLogic typeRef="AutoQuoteResponse">
+            <formalParameter name="request" typeRef="AutoQuoteRequest"/>
+            <formalParameter name="today" typeRef="ilog.rules.brl.SimpleDate"/>
+            <context>
+                <contextEntry>
+                    <variable name="class"/>
+                    <literalExpression>
+                        <text>"decisions.intellinsure.intellinsure_project.pricing.Pricing"</text>
+                    </literalExpression>
+                </contextEntry>
+                <contextEntry>
+                    <variable name="method signature"/>
+                    <literalExpression>
+                        <text>"run(AutoQuoteRequest,ilog.rules.brl.SimpleDate)"</text>
+                    </literalExpression>
+                </contextEntry>
+            </context>
+        </encapsulatedLogic>
+    </businessKnowledgeModel>
+</definitions></definition>
+</com.ibm.rules.studio.model.decisionmodel:DecisionModel>

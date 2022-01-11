@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.brl:ActionRule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.brl="http://ilog.rules.studio/model/brl.ecore">
+  <name>All Experienced Drivers Discount</name>
+  <uuid>56d4326f-0822-4d52-8731-5e8791ac34b3</uuid>
+  <locale>en_US</locale>
+  <definition><![CDATA[if
+    there is no driver in  the drivers of request
+        where the number of years between the first driving license date of this driver and today is less than 5 ,
+then
+    add a new line item where 
+       the value is 30,
+       the message is "All Drivers are experienced drivers" 
+    to decision; 
+
+
+
+
+
+]]></definition>
+</ilog.rules.studio.model.brl:ActionRule>

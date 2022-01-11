@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.brl:ActionRule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.brl="http://ilog.rules.studio/model/brl.ecore">
+  <name>Check Total Usage</name>
+  <uuid>58047b27-7244-4cda-b7de-2c16ca7c0d42</uuid>
+  <locale>en_US</locale>
+  <definition><![CDATA[for each vehicle coverage request, in the vehicle coverages of  'request' 
+if
+    the total percentage usage of the usages of this vehicle coverage request does not equal 100
+then   
+    add "The total vehicle usage must be equal to 100%" to decision ;
+
+
+
+
+]]></definition>
+</ilog.rules.studio.model.brl:ActionRule>

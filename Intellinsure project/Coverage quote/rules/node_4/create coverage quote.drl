@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.brl:ActionRule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.brl="http://ilog.rules.studio/model/brl.ecore">
+  <name>create coverage quote</name>
+  <uuid>6668646f-c5e9-4325-af4f-b706e70123cf</uuid>
+  <locale>en_US</locale>
+  <definition><![CDATA[set decision to a new coverage quote item where
+        the base is 'base premium', 
+        the surcharges are surcharges, 
+        the coverage type is the coverage type of 'coverage request' , 
+        the discounts are discounts ,
+        the coverage price is the value of 'base premium' + the total value of surcharges - the total value of discounts  ;
+
+
+]]></definition>
+</ilog.rules.studio.model.brl:ActionRule>

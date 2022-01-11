@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.brl:ActionRule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.brl="http://ilog.rules.studio/model/brl.ecore">
+  <name>Check Tickets</name>
+  <uuid>56f19eff-1526-4d59-a6d2-6e2bb6900fe2</uuid>
+  <locale>en_US</locale>
+  <definition><![CDATA[for each driver, in the drivers of request 
+definitions
+    set 'name' to the first name of this driver ;
+if
+    the number of traffic tickets of this driver is less than 0
+then
+    add "The number of tickets for " + name + " cannot be less than 0" to decision ;
+
+
+]]></definition>
+</ilog.rules.studio.model.brl:ActionRule>

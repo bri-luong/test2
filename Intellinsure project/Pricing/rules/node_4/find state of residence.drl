@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.brl:ActionRule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.brl="http://ilog.rules.studio/model/brl.ecore">
+  <name>find state of residence</name>
+  <uuid>3576e00d-5918-41ee-b1fd-13287f8820b4</uuid>
+  <locale>en_US</locale>
+  <definition><![CDATA[for each driver, in the drivers of request 
+  if the state of residence of this driver is not null 
+  then set decision to the state of residence of this driver  ;
+
+]]></definition>
+</ilog.rules.studio.model.brl:ActionRule>

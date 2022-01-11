@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.brl:ActionRule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.brl="http://ilog.rules.studio/model/brl.ecore">
+  <name>DUI</name>
+  <uuid>44d6a14f-c32a-4426-8cd2-58af1d97a70a</uuid>
+  <locale>en_US</locale>
+  <definition><![CDATA[for each driver, in the drivers of 'validated request' 
+definitions
+    set 'name' to the first name of this driver ;
+if
+    this driver is convicted of a DUI 
+then
+    add "The driver, " + name + ", has been convicted of driving under the influence of drugs and/or alcohol" to decision ;
+
+]]></definition>
+</ilog.rules.studio.model.brl:ActionRule>

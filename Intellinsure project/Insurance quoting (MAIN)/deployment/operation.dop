@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.ibm.rules.studio.model.decisionservice:Operation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:com.ibm.rules.studio.model.decisionservice="http://com.ibm.rules.studio/model/decisionservice.ecore" rulesetName="operation" targetRuleProjectName="Insurance quoting (MAIN)">
+  <name>insuranceQuoting-MAIN-</name>
+  <uuid>0c037312-26ba-4659-965a-64460abc3dfa</uuid>
+  <decisionModel href="../rules/decisionModel.dmo#53db9620-8455-4be5-9017-a41d8c08ccf6"/>
+  <targetRuleProject href="../../Insurance%20quoting%20(MAIN)#b68eb132-94b0-4269-9799-84eabeea013a"/>
+  <tags key="operationDescription">
+    <value><![CDATA[""]]></value>
+  </tags>
+  <tags key="operationName">
+    <value><![CDATA["insuranceQuoting-MAIN-"]]></value>
+  </tags>
+  <tags key="exposedAtRuntime">
+    <value><![CDATA[true]]></value>
+  </tags>
+</com.ibm.rules.studio.model.decisionservice:Operation>

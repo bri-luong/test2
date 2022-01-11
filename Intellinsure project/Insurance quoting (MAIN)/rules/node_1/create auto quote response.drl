@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.brl:ActionRule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.brl="http://ilog.rules.studio/model/brl.ecore">
+  <name>create auto quote response</name>
+  <uuid>15e35ab4-cdef-4f0d-a00c-288d22f7cf85</uuid>
+  <locale>en_US</locale>
+  <definition><![CDATA[if
+    'eligibility result' is eligible
+then
+    set decision to the pricing computed from 
+    request being 'validated request' , 
+    today being today ;]]></definition>
+</ilog.rules.studio.model.brl:ActionRule>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.ibm.rules.studio.model.decisionservice:Operation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:com.ibm.rules.studio.model.decisionservice="http://com.ibm.rules.studio/model/decisionservice.ecore" rulesetName="operation" targetRuleProjectName="Coverage quote">
+  <name>coverageQuote</name>
+  <uuid>69a83daa-1825-4369-ad4f-9c1dfcd81ab5</uuid>
+  <decisionModel href="../rules/decisionModel.dmo#8ffe5a73-1eb6-4327-9069-0a98cdde1271"/>
+  <targetRuleProject href="../../Coverage%20quote#46730aea-da85-434f-ae63-f6c878258fdc"/>
+</com.ibm.rules.studio.model.decisionservice:Operation>

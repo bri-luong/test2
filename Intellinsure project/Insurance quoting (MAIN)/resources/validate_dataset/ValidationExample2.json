@@ -1,0 +1,163 @@
+{
+  "request": {
+    "drivers": [
+      {
+        "driver id": 1,
+        "first name": "John",
+        "last name": "Doe",
+        "age": 24,
+        "state of residence": "CA",
+        "occupation": "Engineer",
+        "gender": "male",
+        "graduated": false,
+        "married": false,
+        "good student certificate": false,
+        "driving license number": "123456789",
+        "first driving license date": "1999-03-20",
+        "completed drivers education course": true,
+        "license suspended or revoked": false,
+        "number of accidents": 1,
+        "number of traffic tickets": 0,
+        "full time student": false,
+        "vehicle vandalized or stolen": false
+      },
+      {
+        "driver id": 2,
+        "first name": "Alice",
+        "last name": "Fan",
+        "age": 22,
+        "state of residence": "CA",
+        "occupation": "Student",
+        "gender": "female",
+        "married": false,
+        "graduated": false,
+        "full time student": false,
+        "good student certificate": false,
+        "driving license number": "283798753",
+        "first driving license date": "2000-09-12",
+        "completed drivers education course": true,
+        "vehicle vandalized or stolen": false,
+        "license suspended or revoked": false,
+        "number of accidents": 1,
+        "number of traffic tickets": 0
+      }
+    ],
+    "vehicle coverages": [
+      {
+        "vehicle": {
+          "vehicle identification number": "VIN-3",
+          "vehicle type": "coupé",
+          "air bag type": "driver passenger side",
+          "anti lock brakes": true,
+          "day time running lights": false,
+          "make": "BMW",
+          "model": "318i",
+          "registration date": "1998-01-01",
+          "value": 42000
+        },
+        "annual mileage": 5000,
+        "one way driving distance": "5.0",
+        "usages": [
+          {
+            "driver id": 1,
+            "percentage usage": 30
+          },
+          {
+            "driver id": 2,
+            "percentage usage": 80
+          }
+        ],
+        "coverages": [
+          {
+            "coverage type": "liability",
+            "max limit": 30000,
+            "min limit": 15000,
+            "deductible": 0
+          },
+          {
+            "coverage type": "uninsured and underinsured",
+            "max limit": 30000,
+            "min limit": 15000,
+            "deductible": 0
+          },
+          {
+            "coverage type": "comprehensive",
+            "deductible": 1000,
+            "max limit": 0,
+            "min limit": 0
+          },
+          {
+            "coverage type": "collision",
+            "deductible": 1000,
+            "max limit": 0,
+            "min limit": 0
+          },
+          {
+            "coverage type": "mechanical breakdown",
+            "deductible": 0,
+            "max limit": 0,
+            "min limit": 0
+          }
+        ]
+      },
+      {
+        "vehicle": {
+          "vehicle type": "sports coupé",
+          "air bag type": "none",
+          "anti lock brakes": true,
+          "day time running lights": false,
+          "make": "KIA",
+          "model": "Cerato",
+          "registration date": "2005-01-01",
+          "value": 29000,
+          "vehicle identification number": "VIN-4"
+        },
+        "coverages": [
+          {
+            "coverage type": "liability",
+            "max limit": 30000,
+            "min limit": 15000,
+            "deductible": 0
+          },
+          {
+            "coverage type": "uninsured and underinsured",
+            "max limit": 30000,
+            "min limit": 15000,
+            "deductible": 0
+          },
+          {
+            "coverage type": "comprehensive",
+            "max limit": 0,
+            "min limit": 0,
+            "deductible": 1000
+          },
+          {
+            "coverage type": "collision",
+            "max limit": 0,
+            "min limit": 0,
+            "deductible": 1000
+          },
+          {
+            "coverage type": "mechanical breakdown",
+            "max limit": 0,
+            "min limit": 0,
+            "deductible": 0
+          }
+        ],
+        "usages": [
+          {
+            "driver id": 1,
+            "percentage usage": 50
+          },
+          {
+            "driver id": 2,
+            "percentage usage": 40
+          }
+        ],
+        "annual mileage": 5000,
+        "one way driving distance": "5.0"
+      }
+    ]
+  },
+  "today": "2020-06-09"
+}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.brl:ActionRule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.brl="http://ilog.rules.studio/model/brl.ecore">
+  <name>Young Driver Surcharge</name>
+  <uuid>d980f69c-3d40-41bb-8bf3-8d76367f1467</uuid>
+  <locale>en_US</locale>
+  <definition><![CDATA[for each driver, in the drivers of request 
+if
+    all of the following conditions are true :
+            - the age of this driver is between 18 and 21 
+            - the number of accidents of this driver is at least 1 
+            - the number of traffic tickets of this driver is at least 1 ,
+then
+    add a new line item where 
+       the value is 8,
+       the message is "Young driver surcharge" 
+    to decision;
+
+
+]]></definition>
+</ilog.rules.studio.model.brl:ActionRule>

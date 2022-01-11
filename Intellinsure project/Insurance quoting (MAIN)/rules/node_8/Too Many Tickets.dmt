@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.dt:DecisionTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.dt="http://ilog.rules.studio/model/dt.ecore">
+  <name>Too Many Tickets</name>
+  <uuid>23977b82-3d97-4ae1-b05d-8cf026f1418b</uuid>
+  <locale>en_US</locale>
+  <definition><DT xmlns="http://schemas.ilog.com/Rules/7.0/DecisionTable" Version="7.0">
+    <Body>
+        <Properties>
+            <Property Name="UI.MediaType"><![CDATA[Web]]></Property>
+            <Property Name="UI.RenderBoolean" Type="xs:boolean"><![CDATA[true]]></Property>
+        </Properties>
+        <Preconditions>
+            <Text><![CDATA[for each driver called driver, in the drivers of 'validated request' ]]></Text>
+        </Preconditions>
+        <Structure>
+            <ConditionDefinitions>
+                <ConditionDefinition Id="C0">
+                    <Properties>
+                        <Property Name="Check.Gap" Type="xs:boolean"><![CDATA[false]]></Property>
+                        <Property Name="Check.Overlap" Type="xs:boolean"><![CDATA[false]]></Property>
+                    </Properties>
+                    <ExpressionDefinition>
+                        <Text><![CDATA[the number of traffic tickets of 'driver' is <a number>]]></Text>
+                    </ExpressionDefinition>
+                </ConditionDefinition>
+                <ConditionDefinition Id="C5">
+                    <ExpressionDefinition>
+                        <Text><![CDATA['driver' is completed drivers education course is <a boolean>]]></Text>
+                    </ExpressionDefinition>
+                </ConditionDefinition>
+                <ConditionDefinition Id="C2">
+                    <ExpressionDefinition>
+                        <Text><![CDATA['driver' is graduated is <a boolean>]]></Text>
+                    </ExpressionDefinition>
+                </ConditionDefinition>
+                <ConditionDefinition Id="C3">
+                    <ExpressionDefinition>
+                        <Text><![CDATA['driver' is good student certificate is <a boolean>]]></Text>
+                    </ExpressionDefinition>
+                </ConditionDefinition>
+                <ConditionDefinition Id="C4">
+                    <Properties>
+                        <Property Name="Check.Gap" Type="xs:boolean"><![CDATA[false]]></Property>
+                        <Property Name="Check.Overlap" Type="xs:boolean"><![CDATA[true]]></Property>
+                    </Properties>
+                    <ExpressionDefinition>
+                        <Text><![CDATA['driver' is license suspended or revoked is <a boolean>]]></Text>
+                    </ExpressionDefinition>
+                </ConditionDefinition>
+            </ConditionDefinitions>
+            <ActionDefinitions>
+                <ActionDefinition Id="A0">
+                    <ExpressionDefinition>
+                        <Text><![CDATA[add <a string> to 'decision']]></Text>
+                    </ExpressionDefinition>
+                </ActionDefinition>
+            </ActionDefinitions>
+        </Structure>
+        <Contents>
+            <Partition DefId="C0">
+                <Condition>
+                    <Expression>
+                        <Text><![CDATA[<a number> is at least <a number>]]></Text>
+                        <Param><![CDATA[4]]></Param>
+                    </Expression>
+                    <ActionSet>
+                        <Action DefId="A0">
+                            <Expression>
+                                <Param><![CDATA[" You have committed too many traffic offences"]]></Param>
+                            </Expression>
+                        </Action>
+                    </ActionSet>
+                </Condition>
+                <Condition>
+                    <Expression>
+                        <Param><![CDATA[2]]></Param>
+                    </Expression>
+                    <Partition DefId="C2">
+                        <Condition>
+                            <Expression>
+                                <Param><![CDATA[true]]></Param>
+                            </Expression>
+                            <Partition DefId="C3">
+                                <Condition>
+                                    <Expression>
+                                        <Param><![CDATA[true]]></Param>
+                                    </Expression>
+                                    <Partition DefId="C4">
+                                        <Condition>
+                                            <Expression>
+                                                <Param><![CDATA[true]]></Param>
+                                            </Expression>
+                                            <ActionSet>
+                                                <Action DefId="A0">
+                                                    <Expression>
+                                                        <Param><![CDATA["You've had your license suspended or revoked."]]></Param>
+                                                    </Expression>
+                                                </Action>
+                                            </ActionSet>
+                                        </Condition>
+                                    </Partition>
+                                </Condition>
+                                <Condition>
+                                    <Expression>
+                                        <Param><![CDATA[false]]></Param>
+                                    </Expression>
+                                    <ActionSet>
+                                        <Action DefId="A0">
+                                            <Expression>
+                                                <Param><![CDATA["You've committed traffic offences as a student, and do not have a good student certificate."]]></Param>
+                                            </Expression>
+                                        </Action>
+                                    </ActionSet>
+                                </Condition>
+                            </Partition>
+                        </Condition>
+                        <Condition>
+                            <Expression>
+                                <Param><![CDATA[false]]></Param>
+                            </Expression>
+                            <Partition DefId="C4">
+                                <Condition>
+                                    <Expression>
+                                        <Param><![CDATA[true]]></Param>
+                                    </Expression>
+                                    <ActionSet>
+                                        <Action DefId="A0">
+                                            <Expression>
+                                                <Param><![CDATA["You've had your license suspended or revoked."]]></Param>
+                                            </Expression>
+                                        </Action>
+                                    </ActionSet>
+                                </Condition>
+                            </Partition>
+                        </Condition>
+                    </Partition>
+                </Condition>
+                <Condition>
+                    <Expression>
+                        <Param><![CDATA[3]]></Param>
+                    </Expression>
+                    <Partition DefId="C5">
+                        <Condition>
+                            <Expression>
+                                <Param><![CDATA[false]]></Param>
+                            </Expression>
+                            <ActionSet>
+                                <Action DefId="A0">
+                                    <Expression>
+                                        <Param><![CDATA["You have committed traffic offences, and have not received driver's education."]]></Param>
+                                    </Expression>
+                                </Action>
+                            </ActionSet>
+                        </Condition>
+                        <Condition>
+                            <Expression>
+                                <Param><![CDATA[true]]></Param>
+                            </Expression>
+                            <Partition DefId="C4">
+                                <Condition>
+                                    <Expression>
+                                        <Param><![CDATA[true]]></Param>
+                                    </Expression>
+                                    <ActionSet>
+                                        <Action DefId="A0">
+                                            <Expression>
+                                                <Param><![CDATA["You've had your license suspended or revoked."]]></Param>
+                                            </Expression>
+                                        </Action>
+                                    </ActionSet>
+                                </Condition>
+                            </Partition>
+                        </Condition>
+                    </Partition>
+                </Condition>
+            </Partition>
+        </Contents>
+    </Body>
+    <Resources DefaultLocale="en_US">
+        <ResourceSet Locale="en_US">
+            <Data Name="Definitions(C5)#HeaderText"><![CDATA[driver's ed]]></Data>
+            <Data Name="Definitions(C4)#HeaderText"><![CDATA[License suspended]]></Data>
+            <Data Name="Definitions(A0)#Width"><![CDATA[125]]></Data>
+            <Data Name="Definitions(C3)#Width"><![CDATA[163]]></Data>
+            <Data Name="Definitions(C2)#HeaderText"><![CDATA[student]]></Data>
+            <Data Name="Definitions(C3)#HeaderText"><![CDATA[good student certifcate]]></Data>
+            <Data Name="Definitions(C0)[0]#HeaderText"><![CDATA[an auto quote request]]></Data>
+            <Data Name="Definitions(A0)#HeaderText"><![CDATA[high risk reason]]></Data>
+            <Data Name="Definitions(C5)#Width"><![CDATA[86]]></Data>
+            <Data Name="Definitions(C4)#Width"><![CDATA[125]]></Data>
+            <Data Name="Definitions(C0)#Width"><![CDATA[80]]></Data>
+            <Data Name="Definitions(C2)#Width"><![CDATA[80]]></Data>
+            <Data Name="Definitions(C0)#HeaderText"><![CDATA[traffic tickets]]></Data>
+        </ResourceSet>
+    </Resources>
+</DT></definition>
+</ilog.rules.studio.model.dt:DecisionTable>

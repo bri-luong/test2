@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.brl:ActionRule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.brl="http://ilog.rules.studio/model/brl.ecore">
+  <name>create validation response</name>
+  <uuid>52628f81-0dc2-4135-9788-a04c271f2da3</uuid>
+  <locale>en_US</locale>
+  <definition><![CDATA[if
+    the number of elements in 'validation errors' is more than 0
+then
+    set decision to a new validation response where
+        the error messages are 'validation errors', 
+        validated is false ;]]></definition>
+</ilog.rules.studio.model.brl:ActionRule>

@@ -1,0 +1,346 @@
+
+# Term: annual mileage
+@annual\ mileage#plural = new attributes
+
+# Term: value
+@value#plural = new attributes
+
+# AirbagType
+AirbagType#concept.label = airbag type
+AirbagType.driver#instance.label = driver
+AirbagType.driverPassenger#instance.label = driver passenger
+AirbagType.driverPassengerSide#instance.label = driver passenger side
+AirbagType.none#instance.label = none
+
+# AutoQuoteRequest
+AutoQuoteRequest#concept.label = auto quote request
+AutoQuoteRequest.AutoQuoteRequest(java.util.List,java.util.List)#phrase.navigation = a new {auto quote request} where {0, driver} {1, vehicle coverage}
+AutoQuoteRequest.addTo_drivers(Driver)#phrase.action = add {0} to the drivers of {this}
+AutoQuoteRequest.addTo_vehicleCoverages(VehicleCoverageRequest)#phrase.action = add {0} to the vehicle coverages of {this}
+AutoQuoteRequest.clear_drivers()#phrase.action = clear the drivers of {this}
+AutoQuoteRequest.clear_vehicleCoverages()#phrase.action = clear the vehicle coverages of {this}
+AutoQuoteRequest.drivers#phrase.action = set the drivers of {this} to {driver}
+AutoQuoteRequest.drivers#phrase.navigation = {driver} of {this}
+AutoQuoteRequest.removeFrom_drivers(Driver)#phrase.action = remove {0} from the drivers of {this}
+AutoQuoteRequest.removeFrom_vehicleCoverages(VehicleCoverageRequest)#phrase.action = remove {0} from the vehicle coverages of {this}
+AutoQuoteRequest.vehicleCoverages#phrase.action = set the vehicle coverages of {this} to {vehicle coverage}
+AutoQuoteRequest.vehicleCoverages#phrase.navigation = {vehicle coverage} of {this}
+
+# AutoQuoteResponse
+AutoQuoteResponse#concept.label = auto quote response
+AutoQuoteResponse.AutoQuoteResponse(java.util.List,java.util.List,java.util.List,double,java.util.List)#phrase.navigation = a new {auto quote response} where {0, discount} {1, message} {2, surcharge} {3, total price} {4, vehicle quote}
+AutoQuoteResponse.addTo_discount(LineItem)#phrase.action = add {0} to the discounts of {this}
+AutoQuoteResponse.addTo_messages(java.lang.String)#phrase.action = add {0} to the messages of {this}
+AutoQuoteResponse.addTo_surcharge(LineItem)#phrase.action = add {0} to the surcharges of {this}
+AutoQuoteResponse.addTo_vehicleQuotes(VehicleQuoteItem)#phrase.action = add {0} to the vehicle quotes of {this}
+AutoQuoteResponse.clear_discount()#phrase.action = clear the discounts of {this}
+AutoQuoteResponse.clear_messages()#phrase.action = clear the messages of {this}
+AutoQuoteResponse.clear_surcharge()#phrase.action = clear the surcharges of {this}
+AutoQuoteResponse.clear_vehicleQuotes()#phrase.action = clear the vehicle quotes of {this}
+AutoQuoteResponse.discount#phrase.action = set the discounts of {this} to {discount}
+AutoQuoteResponse.discount#phrase.navigation = {discount} of {this}
+AutoQuoteResponse.messages#phrase.action = set the messages of {this} to {message}
+AutoQuoteResponse.messages#phrase.navigation = {message} of {this}
+AutoQuoteResponse.removeFrom_discount(LineItem)#phrase.action = remove {0} from the discounts of {this}
+AutoQuoteResponse.removeFrom_messages(java.lang.String)#phrase.action = remove {0} from the messages of {this}
+AutoQuoteResponse.removeFrom_surcharge(LineItem)#phrase.action = remove {0} from the surcharges of {this}
+AutoQuoteResponse.removeFrom_vehicleQuotes(VehicleQuoteItem)#phrase.action = remove {0} from the vehicle quotes of {this}
+AutoQuoteResponse.surcharge#phrase.action = set the surcharges of {this} to {surcharge}
+AutoQuoteResponse.surcharge#phrase.navigation = {surcharge} of {this}
+AutoQuoteResponse.totalPrice#phrase.action = set the total price of {this} to {total price}
+AutoQuoteResponse.totalPrice#phrase.addition_setter = add {total price} to the total price of {this}
+AutoQuoteResponse.totalPrice#phrase.navigation = {total price} of {this}
+AutoQuoteResponse.totalPrice#phrase.subtraction_setter = subtract {total price} from the total price of {this}
+AutoQuoteResponse.vehicleQuotes#phrase.action = set the vehicle quotes of {this} to {vehicle quote}
+AutoQuoteResponse.vehicleQuotes#phrase.navigation = {vehicle quote} of {this}
+
+# CoverageItem
+CoverageItem#concept.label = coverage item
+CoverageItem.CoverageItem(CoverageType,java.lang.Long,java.lang.Long,java.lang.Long)#phrase.navigation = a new {coverage item} where {0, coverage type} {1, deductible} {2, max limit} {3, min limit}
+CoverageItem.coverageType#phrase.action = set the coverage type of {this} to {coverage type}
+CoverageItem.coverageType#phrase.clearer = clear the coverage type of {this}
+CoverageItem.coverageType#phrase.navigation = {coverage type} of {this}
+CoverageItem.deductible#phrase.action = set the deductible of {this} to {deductible}
+CoverageItem.deductible#phrase.addition_setter = add {deductible} to the deductible of {this}
+CoverageItem.deductible#phrase.navigation = {deductible} of {this}
+CoverageItem.deductible#phrase.subtraction_setter = subtract {deductible} from the deductible of {this}
+CoverageItem.maxLimit#phrase.action = set the max limit of {this} to {max limit}
+CoverageItem.maxLimit#phrase.addition_setter = add {max limit} to the max limit of {this}
+CoverageItem.maxLimit#phrase.navigation = {max limit} of {this}
+CoverageItem.maxLimit#phrase.subtraction_setter = subtract {max limit} from the max limit of {this}
+CoverageItem.minLimit#phrase.action = set the min limit of {this} to {min limit}
+CoverageItem.minLimit#phrase.addition_setter = add {min limit} to the min limit of {this}
+CoverageItem.minLimit#phrase.navigation = {min limit} of {this}
+CoverageItem.minLimit#phrase.subtraction_setter = subtract {min limit} from the min limit of {this}
+
+# CoverageQuoteItem
+CoverageQuoteItem#concept.label = coverage quote item
+CoverageQuoteItem.CoverageQuoteItem(LineItem,double,CoverageType,java.util.List,java.util.List)#phrase.navigation = a new {coverage quote item} where {0, base} {1, coverage price} {2, coverage type} {3, discount} {4, surcharge}
+CoverageQuoteItem.addTo_discount(LineItem)#phrase.action = add {0} to the discounts of {this}
+CoverageQuoteItem.addTo_surcharge(LineItem)#phrase.action = add {0} to the surcharges of {this}
+CoverageQuoteItem.base#phrase.action = set the base of {this} to {base}
+CoverageQuoteItem.base#phrase.clearer = clear the base of {this}
+CoverageQuoteItem.base#phrase.navigation = {base} of {this}
+CoverageQuoteItem.clear_discount()#phrase.action = clear the discounts of {this}
+CoverageQuoteItem.clear_surcharge()#phrase.action = clear the surcharges of {this}
+CoverageQuoteItem.coveragePrice#phrase.action = set the coverage price of {this} to {coverage price}
+CoverageQuoteItem.coveragePrice#phrase.addition_setter = add {coverage price} to the coverage price of {this}
+CoverageQuoteItem.coveragePrice#phrase.navigation = {coverage price} of {this}
+CoverageQuoteItem.coveragePrice#phrase.subtraction_setter = subtract {coverage price} from the coverage price of {this}
+CoverageQuoteItem.coverageType#phrase.action = set the coverage type of {this} to {coverage type}
+CoverageQuoteItem.coverageType#phrase.clearer = clear the coverage type of {this}
+CoverageQuoteItem.coverageType#phrase.navigation = {coverage type} of {this}
+CoverageQuoteItem.discount#phrase.action = set the discounts of {this} to {discount}
+CoverageQuoteItem.discount#phrase.navigation = {discount} of {this}
+CoverageQuoteItem.removeFrom_discount(LineItem)#phrase.action = remove {0} from the discounts of {this}
+CoverageQuoteItem.removeFrom_surcharge(LineItem)#phrase.action = remove {0} from the surcharges of {this}
+CoverageQuoteItem.surcharge#phrase.action = set the surcharges of {this} to {surcharge}
+CoverageQuoteItem.surcharge#phrase.navigation = {surcharge} of {this}
+
+# CoverageType
+CoverageType#concept.label = coverage type
+CoverageType.collision#instance.label = collision
+CoverageType.comprehensive#instance.label = comprehensive
+CoverageType.liability#instance.label = liability
+CoverageType.mechanicalBreakdown#instance.label = mechanical breakdown
+CoverageType.uninsuredAndUnderinsured#instance.label = uninsured and underinsured
+
+# Driver
+Driver#concept.label = driver
+Driver.Driver(java.lang.Long,boolean,boolean,java.lang.Long,java.lang.String,ilog.rules.brl.SimpleDate,java.lang.String,boolean,GenderType,boolean,boolean,java.lang.String,boolean,boolean,java.lang.Long,java.lang.Long,java.lang.String,java.lang.String,boolean)#phrase.navigation = a new {driver} where {0, age} {1, completed drivers education course} {2, convicted of a DUI} {3, driver id} {4, driving license number} {5, first driving license date} {6, first name} {7, full time student} {8, gender} {9, good student certificate} {10, graduated} {11, last name} {12, license suspended or revoked} {13, married} {14, number of accidents} {15, number of traffic tickets} {16, occupation} {17, state of residence} {18, vehicle vandalized or stolen}
+Driver.age#phrase.action = set the age of {this} to {age}
+Driver.age#phrase.addition_setter = add {age} to the age of {this}
+Driver.age#phrase.navigation = {age} of {this}
+Driver.age#phrase.subtraction_setter = subtract {age} from the age of {this}
+Driver.completedDriversEducationCourse#phrase.action[0] = {this} gets completed drivers education course only if {completed drivers education course}
+Driver.completedDriversEducationCourse#phrase.action[1] = make it {completed drivers education course} that {this} is completed drivers education course
+Driver.completedDriversEducationCourse#phrase.action[1].deprecated = true
+Driver.completedDriversEducationCourse#phrase.navigation = {this} is completed drivers education course
+Driver.completedDriversEducationCourse#phrase.negative_predicate = {this} is not completed drivers education course
+Driver.completedDriversEducationCourse#phrase.negative_predicate_setter = {this} does not get completed drivers education course
+Driver.completedDriversEducationCourse#phrase.positive_predicate_setter = {this} gets completed drivers education course
+Driver.convictedOfADUI#phrase.action[0] = {this} gets convicted of a DUI only if {convicted of a DUI}
+Driver.convictedOfADUI#phrase.action[1] = make it {convicted of a DUI} that {this} is convicted of a DUI
+Driver.convictedOfADUI#phrase.action[1].deprecated = true
+Driver.convictedOfADUI#phrase.navigation = {this} is convicted of a DUI
+Driver.convictedOfADUI#phrase.negative_predicate = {this} is not convicted of a DUI
+Driver.convictedOfADUI#phrase.negative_predicate_setter = {this} does not get convicted of a DUI
+Driver.convictedOfADUI#phrase.positive_predicate_setter = {this} gets convicted of a DUI
+Driver.driverId#phrase.action = set the driver id of {this} to {driver id}
+Driver.driverId#phrase.addition_setter = add {driver id} to the driver id of {this}
+Driver.driverId#phrase.navigation = {driver id} of {this}
+Driver.driverId#phrase.subtraction_setter = subtract {driver id} from the driver id of {this}
+Driver.drivingLicenseNumber#phrase.action = set the driving license number of {this} to {driving license number}
+Driver.drivingLicenseNumber#phrase.navigation = {driving license number} of {this}
+Driver.firstDrivingLicenseDate#phrase.action = set the first driving license date of {this} to {first driving license date}
+Driver.firstDrivingLicenseDate#phrase.navigation = {first driving license date} of {this}
+Driver.firstName#phrase.action = set the first name of {this} to {first name}
+Driver.firstName#phrase.navigation = {first name} of {this}
+Driver.fullTimeStudent#phrase.action[0] = {this} gets full time student only if {full time student}
+Driver.fullTimeStudent#phrase.action[1] = make it {full time student} that {this} is full time student
+Driver.fullTimeStudent#phrase.action[1].deprecated = true
+Driver.fullTimeStudent#phrase.navigation = {this} is full time student
+Driver.fullTimeStudent#phrase.negative_predicate = {this} is not full time student
+Driver.fullTimeStudent#phrase.negative_predicate_setter = {this} does not get full time student
+Driver.fullTimeStudent#phrase.positive_predicate_setter = {this} gets full time student
+Driver.gender#phrase.action = set the gender of {this} to {gender}
+Driver.gender#phrase.clearer = clear the gender of {this}
+Driver.gender#phrase.navigation = {gender} of {this}
+Driver.goodStudentCertificate#phrase.action[0] = {this} gets good student certificate only if {good student certificate}
+Driver.goodStudentCertificate#phrase.action[1] = make it {good student certificate} that {this} is good student certificate
+Driver.goodStudentCertificate#phrase.action[1].deprecated = true
+Driver.goodStudentCertificate#phrase.navigation = {this} is good student certificate
+Driver.goodStudentCertificate#phrase.negative_predicate = {this} is not good student certificate
+Driver.goodStudentCertificate#phrase.negative_predicate_setter = {this} does not get good student certificate
+Driver.goodStudentCertificate#phrase.positive_predicate_setter = {this} gets good student certificate
+Driver.graduated#phrase.action[0] = {this} gets graduated only if {graduated}
+Driver.graduated#phrase.action[1] = make it {graduated} that {this} is graduated
+Driver.graduated#phrase.action[1].deprecated = true
+Driver.graduated#phrase.navigation = {this} is graduated
+Driver.graduated#phrase.negative_predicate = {this} is not graduated
+Driver.graduated#phrase.negative_predicate_setter = {this} does not get graduated
+Driver.graduated#phrase.positive_predicate_setter = {this} gets graduated
+Driver.lastName#phrase.action = set the last name of {this} to {last name}
+Driver.lastName#phrase.navigation = {last name} of {this}
+Driver.licenseSuspendedOrRevoked#phrase.action[0] = {this} gets license suspended or revoked only if {license suspended or revoked}
+Driver.licenseSuspendedOrRevoked#phrase.action[1] = make it {license suspended or revoked} that {this} is license suspended or revoked
+Driver.licenseSuspendedOrRevoked#phrase.action[1].deprecated = true
+Driver.licenseSuspendedOrRevoked#phrase.navigation = {this} is license suspended or revoked
+Driver.licenseSuspendedOrRevoked#phrase.negative_predicate = {this} is not license suspended or revoked
+Driver.licenseSuspendedOrRevoked#phrase.negative_predicate_setter = {this} does not get license suspended or revoked
+Driver.licenseSuspendedOrRevoked#phrase.positive_predicate_setter = {this} gets license suspended or revoked
+Driver.married#phrase.action[0] = {this} gets married only if {married}
+Driver.married#phrase.action[1] = make it {married} that {this} is married
+Driver.married#phrase.action[1].deprecated = true
+Driver.married#phrase.navigation = {this} is married
+Driver.married#phrase.negative_predicate = {this} is not married
+Driver.married#phrase.negative_predicate_setter = {this} does not get married
+Driver.married#phrase.positive_predicate_setter = {this} gets married
+Driver.numberOfAccidents#phrase.action = set the number of accidents of {this} to {number of accidents}
+Driver.numberOfAccidents#phrase.addition_setter = add {number of accidents} to the number of accidents of {this}
+Driver.numberOfAccidents#phrase.navigation = {number of accidents} of {this}
+Driver.numberOfAccidents#phrase.subtraction_setter = subtract {number of accidents} from the number of accidents of {this}
+Driver.numberOfTrafficTickets#phrase.action = set the number of traffic tickets of {this} to {number of traffic tickets}
+Driver.numberOfTrafficTickets#phrase.addition_setter = add {number of traffic tickets} to the number of traffic tickets of {this}
+Driver.numberOfTrafficTickets#phrase.navigation = {number of traffic tickets} of {this}
+Driver.numberOfTrafficTickets#phrase.subtraction_setter = subtract {number of traffic tickets} from the number of traffic tickets of {this}
+Driver.occupation#phrase.action = set the occupation of {this} to {occupation}
+Driver.occupation#phrase.navigation = {occupation} of {this}
+Driver.stateOfResidence#phrase.action = set the state of residence of {this} to {state of residence}
+Driver.stateOfResidence#phrase.navigation = {state of residence} of {this}
+Driver.vehicleVandalizedOrStolen#phrase.action[0] = {this} gets vehicle vandalized or stolen only if {vehicle vandalized or stolen}
+Driver.vehicleVandalizedOrStolen#phrase.action[1] = make it {vehicle vandalized or stolen} that {this} is vehicle vandalized or stolen
+Driver.vehicleVandalizedOrStolen#phrase.action[1].deprecated = true
+Driver.vehicleVandalizedOrStolen#phrase.navigation = {this} is vehicle vandalized or stolen
+Driver.vehicleVandalizedOrStolen#phrase.negative_predicate = {this} is not vehicle vandalized or stolen
+Driver.vehicleVandalizedOrStolen#phrase.negative_predicate_setter = {this} does not get vehicle vandalized or stolen
+Driver.vehicleVandalizedOrStolen#phrase.positive_predicate_setter = {this} gets vehicle vandalized or stolen
+
+# EligibilityResponse
+EligibilityResponse#concept.label = eligibility response
+EligibilityResponse.EligibilityResponse(boolean,java.util.List,java.lang.String)#phrase.navigation = a new {eligibility response} where {0, eligible} {1, error message} {2, main message}
+EligibilityResponse.addTo_errorMessages(java.lang.String)#phrase.action = add {0} to the error messages of {this}
+EligibilityResponse.clear_errorMessages()#phrase.action = clear the error messages of {this}
+EligibilityResponse.eligible#phrase.action[0] = {this} gets eligible only if {eligible}
+EligibilityResponse.eligible#phrase.action[1] = make it {eligible} that {this} is eligible
+EligibilityResponse.eligible#phrase.action[1].deprecated = true
+EligibilityResponse.eligible#phrase.navigation = {this} is eligible
+EligibilityResponse.eligible#phrase.negative_predicate = {this} is not eligible
+EligibilityResponse.eligible#phrase.negative_predicate_setter = {this} does not get eligible
+EligibilityResponse.eligible#phrase.positive_predicate_setter = {this} gets eligible
+EligibilityResponse.errorMessages#phrase.action = set the error messages of {this} to {error message}
+EligibilityResponse.errorMessages#phrase.navigation = {error message} of {this}
+EligibilityResponse.mainMessage#phrase.action = set the main message of {this} to {main message}
+EligibilityResponse.mainMessage#phrase.navigation = {main message} of {this}
+EligibilityResponse.removeFrom_errorMessages(java.lang.String)#phrase.action = remove {0} from the error messages of {this}
+
+# EligibilityType
+EligibilityType#concept.label = eligibility type
+EligibilityType.eligible#instance.label = eligible
+EligibilityType.ineligible#instance.label = ineligible
+EligibilityType.manual#instance.label = manual
+
+# GenderType
+GenderType#concept.label = gender type
+GenderType.female#instance.label = female
+GenderType.male#instance.label = male
+
+# LineItem
+LineItem#concept.label = line item
+LineItem.LineItem(java.lang.String,double)#phrase.navigation = a new {line item} where {0, message} {1, value}
+LineItem.message#phrase.action = set the message of {this} to {message}
+LineItem.message#phrase.navigation = {message} of {this}
+LineItem.value#phrase.action = set the value of {this} to {value}
+LineItem.value#phrase.addition_setter = add {value} to the value of {this}
+LineItem.value#phrase.navigation = {value} of {this}
+LineItem.value#phrase.subtraction_setter = subtract {value} from the value of {this}
+
+# ValidationResponse
+ValidationResponse#concept.label = validation response
+ValidationResponse.ValidationResponse(java.util.List,boolean)#phrase.navigation = a new {validation response} where {0, error message} {1, validated}
+ValidationResponse.addTo_errorMessages(java.lang.String)#phrase.action = add {0} to the error messages of {this}
+ValidationResponse.clear_errorMessages()#phrase.action = clear the error messages of {this}
+ValidationResponse.errorMessages#phrase.action = set the error messages of {this} to {error message}
+ValidationResponse.errorMessages#phrase.navigation = {error message} of {this}
+ValidationResponse.removeFrom_errorMessages(java.lang.String)#phrase.action = remove {0} from the error messages of {this}
+ValidationResponse.validated#phrase.action[0] = {this} gets validated only if {validated}
+ValidationResponse.validated#phrase.action[1] = make it {validated} that {this} is validated
+ValidationResponse.validated#phrase.action[1].deprecated = true
+ValidationResponse.validated#phrase.navigation = {this} is validated
+ValidationResponse.validated#phrase.negative_predicate = {this} is not validated
+ValidationResponse.validated#phrase.negative_predicate_setter = {this} does not get validated
+ValidationResponse.validated#phrase.positive_predicate_setter = {this} gets validated
+
+# Vehicle
+Vehicle#concept.label = vehicle
+Vehicle.Vehicle(AirbagType,boolean,boolean,java.lang.String,java.lang.String,ilog.rules.brl.SimpleDate,java.lang.Long,java.lang.String,VehicleType)#phrase.navigation = a new {vehicle} where {0, air bag type} {1, anti lock brakes} {2, day time running lights} {3, make} {4, model} {5, registration date} {6, value} {7, vehicle identification number} {8, vehicle type}
+Vehicle.airBagType#phrase.action = set the air bag type of {this} to {air bag type}
+Vehicle.airBagType#phrase.clearer = clear the air bag type of {this}
+Vehicle.airBagType#phrase.navigation = {air bag type} of {this}
+Vehicle.antiLockBrakes#phrase.action[0] = {this} gets anti lock brakes only if {anti lock brakes}
+Vehicle.antiLockBrakes#phrase.action[1] = make it {anti lock brakes} that {this} is anti lock brakes
+Vehicle.antiLockBrakes#phrase.action[1].deprecated = true
+Vehicle.antiLockBrakes#phrase.navigation = {this} is anti lock brakes
+Vehicle.antiLockBrakes#phrase.negative_predicate = {this} is not anti lock brakes
+Vehicle.antiLockBrakes#phrase.negative_predicate_setter = {this} does not get anti lock brakes
+Vehicle.antiLockBrakes#phrase.positive_predicate_setter = {this} gets anti lock brakes
+Vehicle.dayTimeRunningLights#phrase.action[0] = {this} gets day time running lights only if {day time running lights}
+Vehicle.dayTimeRunningLights#phrase.action[1] = make it {day time running lights} that {this} is day time running lights
+Vehicle.dayTimeRunningLights#phrase.action[1].deprecated = true
+Vehicle.dayTimeRunningLights#phrase.navigation = {this} is day time running lights
+Vehicle.dayTimeRunningLights#phrase.negative_predicate = {this} is not day time running lights
+Vehicle.dayTimeRunningLights#phrase.negative_predicate_setter = {this} does not get day time running lights
+Vehicle.dayTimeRunningLights#phrase.positive_predicate_setter = {this} gets day time running lights
+Vehicle.make#phrase.action = set the make of {this} to {make}
+Vehicle.make#phrase.navigation = {make} of {this}
+Vehicle.model#phrase.action = set the model of {this} to {model}
+Vehicle.model#phrase.navigation = {model} of {this}
+Vehicle.registrationDate#phrase.action = set the registration date of {this} to {registration date}
+Vehicle.registrationDate#phrase.navigation = {registration date} of {this}
+Vehicle.value#phrase.action = set the value of {this} to {value}
+Vehicle.value#phrase.addition_setter = add {value} to the value of {this}
+Vehicle.value#phrase.navigation = {value} of {this}
+Vehicle.value#phrase.subtraction_setter = subtract {value} from the value of {this}
+Vehicle.vehicleIdentificationNumber#phrase.action = set the vehicle identification number of {this} to {vehicle identification number}
+Vehicle.vehicleIdentificationNumber#phrase.navigation = {vehicle identification number} of {this}
+Vehicle.vehicleType#phrase.action = set the vehicle type of {this} to {vehicle type}
+Vehicle.vehicleType#phrase.clearer = clear the vehicle type of {this}
+Vehicle.vehicleType#phrase.navigation = {vehicle type} of {this}
+
+# VehicleCoverageRequest
+VehicleCoverageRequest#concept.label = vehicle coverage request
+VehicleCoverageRequest.VehicleCoverageRequest(double,java.util.List,java.lang.String,java.util.List,Vehicle)#phrase.navigation = a new {vehicle coverage request} where {0, annual mileage} {1, coverage} {2, one way driving distance} {3, usage} {4, vehicle}
+VehicleCoverageRequest.addTo_coverages(CoverageItem)#phrase.action = add {0} to the coverages of {this}
+VehicleCoverageRequest.addTo_usages(VehicleUsage)#phrase.action = add {0} to the usages of {this}
+VehicleCoverageRequest.annualMileage#phrase.action = set the annual mileage of {this} to {annual mileage}
+VehicleCoverageRequest.annualMileage#phrase.addition_setter = add {annual mileage} to the annual mileage of {this}
+VehicleCoverageRequest.annualMileage#phrase.navigation = {annual mileage} of {this}
+VehicleCoverageRequest.annualMileage#phrase.subtraction_setter = subtract {annual mileage} from the annual mileage of {this}
+VehicleCoverageRequest.clear_coverages()#phrase.action = clear the coverages of {this}
+VehicleCoverageRequest.clear_usages()#phrase.action = clear the usages of {this}
+VehicleCoverageRequest.coverages#phrase.action = set the coverages of {this} to {coverage}
+VehicleCoverageRequest.coverages#phrase.navigation = {coverage} of {this}
+VehicleCoverageRequest.oneWayDrivingDistance#phrase.action = set the one way driving distance of {this} to {one way driving distance}
+VehicleCoverageRequest.oneWayDrivingDistance#phrase.navigation = {one way driving distance} of {this}
+VehicleCoverageRequest.removeFrom_coverages(CoverageItem)#phrase.action = remove {0} from the coverages of {this}
+VehicleCoverageRequest.removeFrom_usages(VehicleUsage)#phrase.action = remove {0} from the usages of {this}
+VehicleCoverageRequest.usages#phrase.action = set the usages of {this} to {usage}
+VehicleCoverageRequest.usages#phrase.navigation = {usage} of {this}
+VehicleCoverageRequest.vehicle#phrase.action = set the vehicle of {this} to {vehicle}
+VehicleCoverageRequest.vehicle#phrase.clearer = clear the vehicle of {this}
+VehicleCoverageRequest.vehicle#phrase.navigation = {vehicle} of {this}
+
+# VehicleQuoteItem
+VehicleQuoteItem#concept.label = vehicle quote item
+VehicleQuoteItem.VehicleQuoteItem(java.util.List,double,java.lang.String)#phrase.navigation = a new {vehicle quote item} where {0, coverage quote} {1, total vehicle price} {2, vehicle identification number}
+VehicleQuoteItem.addTo_coverageQuotes(CoverageQuoteItem)#phrase.action = add {0} to the coverage quotes of {this}
+VehicleQuoteItem.clear_coverageQuotes()#phrase.action = clear the coverage quotes of {this}
+VehicleQuoteItem.coverageQuotes#phrase.action = set the coverage quotes of {this} to {coverage quote}
+VehicleQuoteItem.coverageQuotes#phrase.navigation = {coverage quote} of {this}
+VehicleQuoteItem.removeFrom_coverageQuotes(CoverageQuoteItem)#phrase.action = remove {0} from the coverage quotes of {this}
+VehicleQuoteItem.totalVehiclePrice#phrase.action = set the total vehicle price of {this} to {total vehicle price}
+VehicleQuoteItem.totalVehiclePrice#phrase.addition_setter = add {total vehicle price} to the total vehicle price of {this}
+VehicleQuoteItem.totalVehiclePrice#phrase.navigation = {total vehicle price} of {this}
+VehicleQuoteItem.totalVehiclePrice#phrase.subtraction_setter = subtract {total vehicle price} from the total vehicle price of {this}
+VehicleQuoteItem.vehicleIdentificationNumber#phrase.action = set the vehicle identification number of {this} to {vehicle identification number}
+VehicleQuoteItem.vehicleIdentificationNumber#phrase.navigation = {vehicle identification number} of {this}
+
+# VehicleType
+VehicleType#concept.label = vehicle type
+VehicleType.coupé#instance.label = coupé
+VehicleType.pickup#instance.label = pickup
+VehicleType.sUV#instance.label = SUV
+VehicleType.sedan#instance.label = sedan
+VehicleType.sportsCoupé#instance.label = sports coupé
+
+# VehicleUsage
+VehicleUsage#concept.label = vehicle usage
+VehicleUsage.VehicleUsage(java.lang.Long,java.lang.Long)#phrase.navigation = a new {vehicle usage} where {0, driver id} {1, percentage usage}
+VehicleUsage.driverId#phrase.action = set the driver id of {this} to {driver id}
+VehicleUsage.driverId#phrase.addition_setter = add {driver id} to the driver id of {this}
+VehicleUsage.driverId#phrase.navigation = {driver id} of {this}
+VehicleUsage.driverId#phrase.subtraction_setter = subtract {driver id} from the driver id of {this}
+VehicleUsage.percentageUsage#phrase.action = set the percentage usage of {this} to {percentage usage}
+VehicleUsage.percentageUsage#phrase.addition_setter = add {percentage usage} to the percentage usage of {this}
+VehicleUsage.percentageUsage#phrase.navigation = {percentage usage} of {this}
+VehicleUsage.percentageUsage#phrase.subtraction_setter = subtract {percentage usage} from the percentage usage of {this}

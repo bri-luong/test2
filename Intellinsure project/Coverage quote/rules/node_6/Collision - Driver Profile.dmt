@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.dt:DecisionTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.dt="http://ilog.rules.studio/model/dt.ecore">
+  <name>Collision - Driver Profile</name>
+  <uuid>6356b019-18e4-4f6b-9576-b904afd473eb</uuid>
+  <locale>en_US</locale>
+  <definition><DT xmlns="http://schemas.ilog.com/Rules/7.0/DecisionTable" Version="7.0">
+    <Body>
+        <Properties>
+            <Property Name="UI.MediaType"><![CDATA[Web]]></Property>
+            <Property Name="UI.RenderBoolean" Type="xs:boolean"><![CDATA[true]]></Property>
+        </Properties>
+        <Preconditions>
+            <Text><![CDATA[for each driver called 'Driver' , in 'selected drivers' 
+if the coverage type of 'coverage request' is collision]]></Text>
+        </Preconditions>
+        <Structure>
+            <ConditionDefinitions>
+                <ConditionDefinition Id="C0">
+                    <ExpressionDefinition>
+                        <Text><![CDATA[the gender of 'Driver' is <an object>]]></Text>
+                    </ExpressionDefinition>
+                </ConditionDefinition>
+                <ConditionDefinition Id="C2">
+                    <ExpressionDefinition>
+                        <Text><![CDATA['Driver' is married is <a boolean>]]></Text>
+                    </ExpressionDefinition>
+                </ConditionDefinition>
+                <ConditionDefinition Id="C3">
+                    <ExpressionDefinition>
+                        <Text><![CDATA['Driver' is graduated is <a boolean>]]></Text>
+                    </ExpressionDefinition>
+                </ConditionDefinition>
+                <ConditionDefinition Id="C4">
+                    <ExpressionDefinition>
+                        <Text><![CDATA[the age of 'Driver' is between <min> and <max>]]></Text>
+                    </ExpressionDefinition>
+                </ConditionDefinition>
+            </ConditionDefinitions>
+            <ActionDefinitions>
+                <ActionDefinition Id="A0">
+                    <ExpressionDefinition>
+                        <Text><![CDATA[add a new line item where
+	the message is <message>, 
+	the value is <value> to 'decision']]></Text>
+                    </ExpressionDefinition>
+                </ActionDefinition>
+            </ActionDefinitions>
+        </Structure>
+        <Contents>
+            <Partition DefId="C0">
+                <Condition>
+                    <Expression>
+                        <Param><![CDATA[male]]></Param>
+                    </Expression>
+                    <Partition DefId="C2">
+                        <Condition>
+                            <Expression>
+                                <Param><![CDATA[false]]></Param>
+                            </Expression>
+                            <Partition DefId="C3">
+                                <Condition>
+                                    <Expression>
+                                        <Param><![CDATA[false]]></Param>
+                                    </Expression>
+                                    <Partition DefId="C4">
+                                        <Condition>
+                                            <Expression>
+                                                <Text><![CDATA[<a number> is at most <a number>]]></Text>
+                                                <Param><![CDATA[23]]></Param>
+                                            </Expression>
+                                            <ActionSet>
+                                                <Action DefId="A0">
+                                                    <Expression>
+                                                        <Param><![CDATA["Driver Profile Surcharge"]]></Param>
+                                                        <Param><![CDATA[23]]></Param>
+                                                    </Expression>
+                                                </Action>
+                                            </ActionSet>
+                                        </Condition>
+                                        <Condition>
+                                            <Expression>
+                                                <Param><![CDATA[24]]></Param>
+                                                <Param><![CDATA[30]]></Param>
+                                            </Expression>
+                                            <ActionSet>
+                                                <Action DefId="A0">
+                                                    <Expression>
+                                                        <Param><![CDATA["Driver Profile Surcharge"]]></Param>
+                                                        <Param><![CDATA[18]]></Param>
+                                                    </Expression>
+                                                </Action>
+                                            </ActionSet>
+                                        </Condition>
+                                        <Condition>
+                                            <Expression>
+                                                <Param><![CDATA[31]]></Param>
+                                                <Param><![CDATA[35]]></Param>
+                                            </Expression>
+                                            <ActionSet>
+                                                <Action DefId="A0">
+                                                    <Expression>
+                                                        <Param><![CDATA["Driver Profile Surcharge"]]></Param>
+                                                        <Param><![CDATA[13]]></Param>
+                                                    </Expression>
+                                                </Action>
+                                            </ActionSet>
+                                        </Condition>
+                                    </Partition>
+                                </Condition>
+                                <Condition>
+                                    <Expression>
+                                        <Param><![CDATA[true]]></Param>
+                                    </Expression>
+                                    <Partition DefId="C4">
+                                        <Condition>
+                                            <Expression>
+                                                <Text><![CDATA[<a number> is at most <a number>]]></Text>
+                                                <Param><![CDATA[23]]></Param>
+                                            </Expression>
+                                            <ActionSet>
+                                                <Action DefId="A0">
+                                                    <Expression>
+                                                        <Param><![CDATA["Driver Profile Surcharge"]]></Param>
+                                                        <Param><![CDATA[20]]></Param>
+                                                    </Expression>
+                                                </Action>
+                                            </ActionSet>
+                                        </Condition>
+                                        <Condition>
+                                            <Expression>
+                                                <Param><![CDATA[24]]></Param>
+                                                <Param><![CDATA[30]]></Param>
+                                            </Expression>
+                                            <ActionSet>
+                                                <Action DefId="A0">
+                                                    <Expression>
+                                                        <Param><![CDATA["Driver Profile Surcharge"]]></Param>
+                                                        <Param><![CDATA[15]]></Param>
+                                                    </Expression>
+                                                </Action>
+                                            </ActionSet>
+                                        </Condition>
+                                        <Condition>
+                                            <Expression>
+                                                <Param><![CDATA[31]]></Param>
+                                                <Param><![CDATA[35]]></Param>
+                                            </Expression>
+                                            <ActionSet>
+                                                <Action DefId="A0">
+                                                    <Expression>
+                                                        <Param><![CDATA["Driver Profile Surcharge"]]></Param>
+                                                        <Param><![CDATA[10]]></Param>
+                                                    </Expression>
+                                                </Action>
+                                            </ActionSet>
+                                        </Condition>
+                                    </Partition>
+                                </Condition>
+                            </Partition>
+                        </Condition>
+                        <Condition>
+                            <Expression>
+                                <Param><![CDATA[true]]></Param>
+                            </Expression>
+                            <Partition DefId="C3">
+                                <Condition>
+                                    <Expression>
+                                        <Param><![CDATA[false]]></Param>
+                                    </Expression>
+                                    <Partition DefId="C4">
+                                        <Condition>
+                                            <Expression>
+                                                <Text><![CDATA[<a number> is at most <a number>]]></Text>
+                                                <Param><![CDATA[23]]></Param>
+                                            </Expression>
+                                            <ActionSet>
+                                                <Action DefId="A0">
+                                                    <Expression>
+                                                        <Param><![CDATA["Driver Profile Surcharge"]]></Param>
+                                                        <Param><![CDATA[18]]></Param>
+                                                    </Expression>
+                                                </Action>
+                                            </ActionSet>
+                                        </Condition>
+                                        <Condition>
+                                            <Expression>
+                                                <Param><![CDATA[24]]></Param>
+                                                <Param><![CDATA[30]]></Param>
+                                            </Expression>
+                                            <ActionSet>
+                                                <Action DefId="A0">
+                                                    <Expression>
+                                                        <Param><![CDATA["Driver Profile Surcharge"]]></Param>
+                                                        <Param><![CDATA[14]]></Param>
+                                                    </Expression>
+                                                </Action>
+                                            </ActionSet>
+                                        </Condition>
+                                        <Condition>
+                                            <Expression>
+                                                <Param><![CDATA[31]]></Param>
+                                                <Param><![CDATA[35]]></Param>
+                                            </Expression>
+                                            <ActionSet>
+                                                <Action DefId="A0">
+                                                    <Expression>
+                                                        <Param><![CDATA["Driver Profile Surcharge"]]></Param>
+                                                        <Param><![CDATA[10]]></Param>
+                                                    </Expression>
+                                                </Action>
+                                            </ActionSet>
+                                        </Condition>
+                                    </Partition>
+                                </Condition>
+                                <Condition>
+                                    <Expression>
+                                        <Param><![CDATA[true]]></Param>
+                                    </Expression>
+                                    <Partition DefId="C4">
+                                        <Condition>
+                                            <Expression>
+                                                <Text><![CDATA[<a number> is at most <a number>]]></Text>
+                                                <Param><![CDATA[23]]></Param>
+                                            </Expression>
+                                            <ActionSet>
+                                                <Action DefId="A0">
+                                                    <Expression>
+                                                        <Param><![CDATA["Driver Profile Surcharge"]]></Param>
+                                                        <Param><![CDATA[15]]></Param>
+                                                    </Expression>
+                                                </Action>
+                                            </ActionSet>
+                                        </Condition>
+                                        <Condition>
+                                            <Expression>
+                                                <Param><![CDATA[24]]></Param>
+                                                <Param><![CDATA[30]]></Param>
+                                            </Expression>
+                                            <ActionSet>
+                                                <Action DefId="A0">
+                                                    <Expression>
+                                                        <Param><![CDATA["Driver Profile Surcharge"]]></Param>
+                                                        <Param><![CDATA[10]]></Param>
+                                                    </Expression>
+                                                </Action>
+                                            </ActionSet>
+                                        </Condition>
+                                        <Condition>
+                                            <Expression>
+                                                <Param><![CDATA[31]]></Param>
+                                                <Param><![CDATA[35]]></Param>
+                                            </Expression>
+                                            <ActionSet>
+                                                <Action DefId="A0">
+                                                    <Expression>
+                                                        <Param><![CDATA["Driver Profile Surcharge"]]></Param>
+                                                        <Param><![CDATA[5]]></Param>
+                                                    </Expression>
+                                                </Action>
+                                            </ActionSet>
+                                        </Condition>
+                                    </Partition>
+                                </Condition>
+                            </Partition>
+                        </Condition>
+                    </Partition>
+                </Condition>
+                <Condition>
+                    <Expression>
+                        <Param><![CDATA[female]]></Param>
+                    </Expression>
+                    <Partition DefId="C2">
+                        <Condition>
+                            <Expression>
+                                <Param><![CDATA[false]]></Param>
+                            </Expression>
+                            <Partition DefId="C3">
+                                <Condition>
+                                    <Expression>
+                                        <Param><![CDATA[false]]></Param>
+                                    </Expression>
+                                    <Partition DefId="C4">
+                                        <Condition>
+                                            <Expression>
+                                                <Text><![CDATA[<a number> is at most <a number>]]></Text>
+                                                <Param><![CDATA[21]]></Param>
+                                            </Expression>
+                                            <ActionSet>
+                                                <Action DefId="A0">
+                                                    <Expression>
+                                                        <Param><![CDATA["Driver Profile Surcharge"]]></Param>
+                                                        <Param><![CDATA[16]]></Param>
+                                                    </Expression>
+                                                </Action>
+                                            </ActionSet>
+                                        </Condition>
+                                        <Condition>
+                                            <Expression>
+                                                <Param><![CDATA[22]]></Param>
+                                                <Param><![CDATA[27]]></Param>
+                                            </Expression>
+                                            <ActionSet>
+                                                <Action DefId="A0">
+                                                    <Expression>
+                                                        <Param><![CDATA["Driver Profile Surcharge"]]></Param>
+                                                        <Param><![CDATA[10]]></Param>
+                                                    </Expression>
+                                                </Action>
+                                            </ActionSet>
+                                        </Condition>
+                                        <Condition>
+                                            <Expression>
+                                                <Param><![CDATA[28]]></Param>
+                                                <Param><![CDATA[33]]></Param>
+                                            </Expression>
+                                            <ActionSet>
+                                                <Action DefId="A0">
+                                                    <Expression>
+                                                        <Param><![CDATA["Driver Profile Surcharge"]]></Param>
+                                                        <Param><![CDATA[6]]></Param>
+                                                    </Expression>
+                                                </Action>
+                                            </ActionSet>
+                                        </Condition>
+                                    </Partition>
+                                </Condition>
+                                <Condition>
+                                    <Expression>
+                                        <Param><![CDATA[true]]></Param>
+                                    </Expression>
+                                    <Partition DefId="C4">
+                                        <Condition>
+                                            <Expression>
+                                                <Text><![CDATA[<a number> is at most <a number>]]></Text>
+                                                <Param><![CDATA[21]]></Param>
+                                            </Expression>
+                                            <ActionSet>
+                                                <Action DefId="A0">
+                                                    <Expression>
+                                                        <Param><![CDATA["Driver Profile Surcharge"]]></Param>
+                                                        <Param><![CDATA[12]]></Param>
+                                                    </Expression>
+                                                </Action>
+                                            </ActionSet>
+                                        </Condition>
+                                        <Condition>
+                                            <Expression>
+                                                <Param><![CDATA[22]]></Param>
+                                                <Param><![CDATA[27]]></Param>
+                                            </Expression>
+                                            <ActionSet>
+                                                <Action DefId="A0">
+                                                    <Expression>
+                                                        <Param><![CDATA["Driver Profile Surcharge"]]></Param>
+                                                        <Param><![CDATA[8]]></Param>
+                                                    </Expression>
+                                                </Action>
+                                            </ActionSet>
+                                        </Condition>
+                                        <Condition>
+                                            <Expression>
+                                                <Param><![CDATA[28]]></Param>
+                                                <Param><![CDATA[33]]></Param>
+                                            </Expression>
+                                            <ActionSet>
+                                                <Action DefId="A0">
+                                                    <Expression>
+                                                        <Param><![CDATA["Driver Profile Surcharge"]]></Param>
+                                                        <Param><![CDATA[5]]></Param>
+                                                    </Expression>
+                                                </Action>
+                                            </ActionSet>
+                                        </Condition>
+                                    </Partition>
+                                </Condition>
+                            </Partition>
+                        </Condition>
+                        <Condition>
+                            <Expression>
+                                <Param><![CDATA[true]]></Param>
+                            </Expression>
+                            <Partition DefId="C3">
+                                <Condition>
+                                    <Expression>
+                                        <Param><![CDATA[false]]></Param>
+                                    </Expression>
+                                    <Partition DefId="C4">
+                                        <Condition>
+                                            <Expression>
+                                                <Text><![CDATA[<a number> is at most <a number>]]></Text>
+                                                <Param><![CDATA[21]]></Param>
+                                            </Expression>
+                                            <ActionSet>
+                                                <Action DefId="A0">
+                                                    <Expression>
+                                                        <Param><![CDATA["Driver Profile Surcharge"]]></Param>
+                                                        <Param><![CDATA[8]]></Param>
+                                                    </Expression>
+                                                </Action>
+                                            </ActionSet>
+                                        </Condition>
+                                        <Condition>
+                                            <Expression>
+                                                <Param><![CDATA[22]]></Param>
+                                                <Param><![CDATA[27]]></Param>
+                                            </Expression>
+                                            <ActionSet>
+                                                <Action DefId="A0">
+                                                    <Expression>
+                                                        <Param><![CDATA["Driver Profile Surcharge"]]></Param>
+                                                        <Param><![CDATA[5]]></Param>
+                                                    </Expression>
+                                                </Action>
+                                            </ActionSet>
+                                        </Condition>
+                                        <Condition>
+                                            <Expression>
+                                                <Param><![CDATA[28]]></Param>
+                                                <Param><![CDATA[35]]></Param>
+                                            </Expression>
+                                            <ActionSet>
+                                                <Action DefId="A0">
+                                                    <Expression>
+                                                        <Param><![CDATA["Driver Profile Surcharge"]]></Param>
+                                                        <Param><![CDATA[2]]></Param>
+                                                    </Expression>
+                                                </Action>
+                                            </ActionSet>
+                                        </Condition>
+                                    </Partition>
+                                </Condition>
+                                <Condition>
+                                    <Expression>
+                                        <Param><![CDATA[true]]></Param>
+                                    </Expression>
+                                    <Partition DefId="C4">
+                                        <Condition>
+                                            <Expression>
+                                                <Text><![CDATA[<a number> is at most <a number>]]></Text>
+                                                <Param><![CDATA[21]]></Param>
+                                            </Expression>
+                                            <ActionSet>
+                                                <Action DefId="A0">
+                                                    <Expression>
+                                                        <Param><![CDATA["Driver Profile Surcharge"]]></Param>
+                                                        <Param><![CDATA[5]]></Param>
+                                                    </Expression>
+                                                </Action>
+                                            </ActionSet>
+                                        </Condition>
+                                        <Condition>
+                                            <Expression>
+                                                <Param><![CDATA[22]]></Param>
+                                                <Param><![CDATA[27]]></Param>
+                                            </Expression>
+                                            <ActionSet>
+                                                <Action DefId="A0">
+                                                    <Expression>
+                                                        <Param><![CDATA["Driver Profile Surcharge"]]></Param>
+                                                        <Param><![CDATA[2]]></Param>
+                                                    </Expression>
+                                                </Action>
+                                            </ActionSet>
+                                        </Condition>
+                                    </Partition>
+                                </Condition>
+                            </Partition>
+                        </Condition>
+                    </Partition>
+                </Condition>
+            </Partition>
+        </Contents>
+    </Body>
+    <Resources DefaultLocale="en_US">
+        <ResourceSet Locale="en_US">
+            <Data Name="Definitions(A0)#HeaderText"><![CDATA[surcharges]]></Data>
+            <Data Name="Definitions(A0)#Width"><![CDATA[130]]></Data>
+            <Data Name="Definitions(C0)#HeaderText"><![CDATA[gender]]></Data>
+            <Data Name="Definitions(C0)#Width"><![CDATA[118]]></Data>
+            <Data Name="Definitions(C0)[0]#HeaderText"><![CDATA[a coverage item]]></Data>
+            <Data Name="Definitions(C2)#HeaderText"><![CDATA[marital status]]></Data>
+            <Data Name="Definitions(C2)#Width"><![CDATA[106]]></Data>
+            <Data Name="Definitions(C3)#HeaderText"><![CDATA[graduation]]></Data>
+            <Data Name="Definitions(C3)#Width"><![CDATA[80]]></Data>
+            <Data Name="Definitions(C4)#HeaderText"><![CDATA[age]]></Data>
+            <Data Name="Definitions(C4)#Width"><![CDATA[80]]></Data>
+        </ResourceSet>
+    </Resources>
+</DT></definition>
+</ilog.rules.studio.model.dt:DecisionTable>

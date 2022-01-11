@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.brl:ActionRule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.brl="http://ilog.rules.studio/model/brl.ecore">
+  <name>select drivers 01</name>
+  <uuid>37d20361-7b6f-4046-b9dd-1bd64f57e5a9</uuid>
+  <locale>en_US</locale>
+  <definition><![CDATA[for each driver, in the drivers of 'auto quote request' 
+if the maximum percentage usage of all vehicle usages in the usages of 'vehicle coverage request' ,
+      where the driver id of each vehicle usage is the driver id of this driver,
+   is at least 50
+then add this driver to decision;
+]]></definition>
+</ilog.rules.studio.model.brl:ActionRule>

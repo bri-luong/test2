@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.ibm.rules.studio.model.decisionservice:Operation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:com.ibm.rules.studio.model.decisionservice="http://com.ibm.rules.studio/model/decisionservice.ecore" rulesetName="operation" targetRuleProjectName="Vehicle coverage quote">
+  <name>vehicleCoverageQuote</name>
+  <uuid>7b4c5d86-40e0-4a5a-ab1c-df1759860c33</uuid>
+  <decisionModel href="../rules/decisionModel.dmo#b3a24290-3945-45e1-a147-4ade91cc9741"/>
+  <targetRuleProject href="../../Vehicle%20coverage%20quote#69f33665-501e-45c1-a040-9c46de255e58"/>
+</com.ibm.rules.studio.model.decisionservice:Operation>

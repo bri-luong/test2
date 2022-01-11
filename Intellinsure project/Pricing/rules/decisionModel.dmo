@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.ibm.rules.studio.model.decisionmodel:DecisionModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:com.ibm.rules.studio.model.decisionmodel="http://com.ibm.rules.studio/model/decisionmodel.ecore">
+  <name>decisionModel</name>
+  <uuid>f085c950-1040-45b9-b58d-46f500d7ec4a</uuid>
+  <locale>en_US</locale>
+  <definition><definitions xmlns="http://www.omg.org/spec/DMN/20180521/MODEL/" id="decisions" name="diagram" namespace="">
+    <extensionElements>
+        <locale xmlns="http://www.ibm.com/spec/ODM/dmn.xsd" id="en_US"/>
+    </extensionElements>
+    <inputData id="node_0" name="request">
+        <extensionElements>
+            <initialization xmlns="http://www.ibm.com/spec/ODM/dmn.xsd">
+                <output bomType="AutoQuoteRequest" collection="false" name="request"/>
+            </initialization>
+        </extensionElements>
+        <variable id="node_0_ii" name="request" typeRef="AutoQuoteRequest"/>
+    </inputData>
+    <decision id="node_1" name="vehicle quote items">
+        <extensionElements>
+            <ruleset xmlns="http://www.ibm.com/spec/ODM/dmn.xsd" conflictResolution="collect">
+                <input bomType="AutoQuoteRequest" collection="false" name="request"/>
+                <input bomType="java.lang.String" collection="false" name="state of residence"/>
+                <input bomType="ilog.rules.brl.SimpleDate" collection="false" name="today"/>
+                <output bomType="VehicleQuoteItem" collection="true" name="vehicle quote items"/>
+                <rule defaultRule="false" href="node_1/compute%20quotes.drl" kind="BusinessRule" name="compute quotes"/>
+            </ruleset>
+        </extensionElements>
+        <variable id="node_1_ii" name="vehicle quote items" typeRef="VehicleQuoteItem[]"/>
+        <informationRequirement>
+            <requiredInput href="#node_0"/>
+        </informationRequirement>
+        <informationRequirement>
+            <requiredInput href="#node_4"/>
+        </informationRequirement>
+        <informationRequirement>
+            <requiredInput href="#node_6"/>
+        </informationRequirement>
+        <knowledgeRequirement>
+            <requiredKnowledge href="#node_10"/>
+        </knowledgeRequirement>
+    </decision>
+    <decision id="node_2" name="response">
+        <extensionElements>
+            <ruleset xmlns="http://www.ibm.com/spec/ODM/dmn.xsd" conflictResolution="first">
+                <input bomType="VehicleQuoteItem" collection="true" name="vehicle quote items"/>
+                <input bomType="LineItem" collection="true" name="discounts"/>
+                <input bomType="LineItem" collection="true" name="surcharges"/>
+                <input bomType="java.lang.Double" collection="false" name="price"/>
+                <output bomType="AutoQuoteResponse" collection="false" name="response"/>
+                <rule defaultRule="false" href="node_2/create%20response.drl" kind="BusinessRule" name="create response"/>
+            </ruleset>
+        </extensionElements>
+        <variable id="node_2_ii" name="response" typeRef="AutoQuoteResponse"/>
+        <informationRequirement>
+            <requiredInput href="#node_1"/>
+        </informationRequirement>
+        <informationRequirement>
+            <requiredInput href="#node_5"/>
+        </informationRequirement>
+        <informationRequirement>
+            <requiredInput href="#node_8"/>
+        </informationRequirement>
+        <informationRequirement>
+            <requiredInput href="#node_9"/>
+        </informationRequirement>
+    </decision>
+    <decision id="node_4" name="state of residence">
+        <extensionElements>
+            <ruleset xmlns="http://www.ibm.com/spec/ODM/dmn.xsd" conflictResolution="first">
+                <input bomType="AutoQuoteRequest" collection="false" name="request"/>
+                <output bomType="java.lang.String" collection="false" name="state of residence"/>
+                <rule defaultRule="false" href="node_4/find%20state%20of%20residence.drl" kind="BusinessRule" name="find state of residence"/>
+            </ruleset>
+        </extensionElements>
+        <variable id="node_4_ii" name="state of residence" typeRef="java.lang.String"/>
+        <informationRequirement>
+            <requiredInput href="#node_0"/>
+        </informationRequirement>
+    </decision>
+    <decision id="node_5" name="discounts">
+        <extensionElements>
+            <ruleset xmlns="http://www.ibm.com/spec/ODM/dmn.xsd" conflictResolution="collect">
+                <input bomType="AutoQuoteRequest" collection="false" name="request"/>
+                <input bomType="ilog.rules.brl.SimpleDate" collection="false" name="today"/>
+                <input bomType="java.lang.Double" collection="false" name="price"/>
+                <output bomType="LineItem" collection="true" name="discounts"/>
+                <rule defaultRule="false" href="node_5/All%20Experienced%20Drivers%20Discount.drl" kind="BusinessRule" name="All Experienced Drivers Discount"/>
+                <rule defaultRule="false" href="node_5/Driver%20Ed%20Discount.drl" kind="BusinessRule" name="Driver Ed Discount"/>
+                <rule defaultRule="true" href="node_5/output-default-setting.drl" kind="BusinessRule" name="output-default-setting"/>
+            </ruleset>
+        </extensionElements>
+        <variable id="node_5_ii" name="discounts" typeRef="LineItem[]"/>
+        <informationRequirement>
+            <requiredInput href="#node_0"/>
+        </informationRequirement>
+        <informationRequirement>
+            <requiredInput href="#node_6"/>
+        </informationRequirement>
+        <informationRequirement>
+            <requiredInput href="#node_9"/>
+        </informationRequirement>
+    </decision>
+    <inputData id="node_6" name="today">
+        <extensionElements>
+            <initialization xmlns="http://www.ibm.com/spec/ODM/dmn.xsd">
+                <output bomType="ilog.rules.brl.SimpleDate" collection="false" name="today"/>
+            </initialization>
+        </extensionElements>
+        <variable id="node_6_ii" name="today" typeRef="ilog.rules.brl.SimpleDate"/>
+    </inputData>
+    <decision id="node_8" name="surcharges">
+        <extensionElements>
+            <ruleset xmlns="http://www.ibm.com/spec/ODM/dmn.xsd" conflictResolution="collect">
+                <input bomType="AutoQuoteRequest" collection="false" name="request"/>
+                <input bomType="ilog.rules.brl.SimpleDate" collection="false" name="today"/>
+                <input bomType="java.lang.Double" collection="false" name="price"/>
+                <output bomType="LineItem" collection="true" name="surcharges"/>
+                <rule defaultRule="false" href="node_8/Young%20Driver%20Surcharge.drl" kind="BusinessRule" name="Young Driver Surcharge"/>
+                <rule defaultRule="true" href="node_8/output-default-setting.drl" kind="BusinessRule" name="output-default-setting"/>
+            </ruleset>
+        </extensionElements>
+        <variable id="node_8_ii" name="surcharges" typeRef="LineItem[]"/>
+        <informationRequirement>
+            <requiredInput href="#node_0"/>
+        </informationRequirement>
+        <informationRequirement>
+            <requiredInput href="#node_6"/>
+        </informationRequirement>
+        <informationRequirement>
+            <requiredInput href="#node_9"/>
+        </informationRequirement>
+    </decision>
+    <decision id="node_9" name="price">
+        <description>TODO: logic is tentative and needs to be validated.</description>
+        <extensionElements>
+            <ruleset xmlns="http://www.ibm.com/spec/ODM/dmn.xsd" conflictResolution="sum">
+                <input bomType="VehicleQuoteItem" collection="true" name="vehicle quote items"/>
+                <output bomType="java.lang.Double" collection="false" name="price"/>
+                <rule defaultRule="false" href="node_9/compute%20price.drl" kind="BusinessRule" name="compute price"/>
+            </ruleset>
+        </extensionElements>
+        <variable id="node_9_ii" name="price" typeRef="java.lang.Double"/>
+        <informationRequirement>
+            <requiredInput href="#node_1"/>
+        </informationRequirement>
+    </decision>
+    <businessKnowledgeModel id="node_10" name="Vehicle coverage quote">
+        <extensionElements>
+            <properties xmlns="http://www.ibm.com/spec/ODM/dmn.xsd">
+                <property name="ads.designer.bkKind"><![CDATA[decision]]></property>
+            </properties>
+        </extensionElements>
+        <variable name="Vehicle coverage quote" typeRef="VehicleQuoteItem"/>
+        <encapsulatedLogic typeRef="VehicleQuoteItem">
+            <formalParameter name="vehicleCoverageRequest" typeRef="VehicleCoverageRequest"/>
+            <formalParameter name="stateOfResidence" typeRef="java.lang.String"/>
+            <formalParameter name="today" typeRef="ilog.rules.brl.SimpleDate"/>
+            <formalParameter name="autoQuoteRequest" typeRef="AutoQuoteRequest"/>
+            <context>
+                <contextEntry>
+                    <variable name="class"/>
+                    <literalExpression>
+                        <text>"decisions.intellinsure.intellinsure_project.coverage.VehicleCoverageQuote"</text>
+                    </literalExpression>
+                </contextEntry>
+                <contextEntry>
+                    <variable name="method signature"/>
+                    <literalExpression>
+                        <text>"run(VehicleCoverageRequest,java.lang.String,ilog.rules.brl.SimpleDate,AutoQuoteRequest)"</text>
+                    </literalExpression>
+                </contextEntry>
+            </context>
+        </encapsulatedLogic>
+    </businessKnowledgeModel>
+</definitions></definition>
+</com.ibm.rules.studio.model.decisionmodel:DecisionModel>

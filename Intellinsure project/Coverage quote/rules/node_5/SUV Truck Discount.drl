@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.brl:ActionRule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.brl="http://ilog.rules.studio/model/brl.ecore">
+  <name>SUV Truck Discount</name>
+  <uuid>4acf42ea-bfdc-4fde-a497-a5fc8f171e35</uuid>
+  <locale>en_US</locale>
+  <definition><![CDATA[if
+   the coverage type of 'coverage request' is collision and 
+   the vehicle type of the vehicle of 'vehicle coverage request' is SUV  
+then
+    add a new line item where 
+       the value is (1.5 * the value of 'base premium') / 100,
+       the message is "Sports Utility Vehicle Discount"
+    to decision;
+
+
+]]></definition>
+</ilog.rules.studio.model.brl:ActionRule>

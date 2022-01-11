@@ -1,0 +1,716 @@
+
+
+public class AirbagType
+        extends java.lang.Enum
+        property "ads.typeId" "6"
+        property "com.fasterxml.jackson.annotation.JsonTypeName" "airbagType"
+        property "de.generated" "true"
+{
+    domain {static driver, static driverPassenger, static driverPassengerSide, static none}
+    public static final readonly AirbagType driver
+                property "ads.attributeId" "4"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "driver";
+    public static final readonly AirbagType driverPassenger
+                property "ads.attributeId" "3"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "driverPassenger";
+    public static final readonly AirbagType driverPassengerSide
+                property "ads.attributeId" "2"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "driverPassengerSide";
+    public static final readonly AirbagType none
+                property "ads.attributeId" "1"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "none";
+}
+
+public class AutoQuoteRequest
+        property "ads.typeId" "11"
+        property "com.fasterxml.jackson.annotation.JsonTypeName" "autoQuoteRequest"
+        property "de.generated" "true"
+{
+    public java.util.List drivers domain 0,* class Driver
+                property "ads.attributeId" "1"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "drivers"
+                property update "true";
+    public java.util.List vehicleCoverages domain 0,* class VehicleCoverageRequest
+                property "ads.attributeId" "4"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "vehicleCoverages"
+                property update "true";
+    public AutoQuoteRequest(java.util.List drivers domain 0,* class Driver, 
+        java.util.List vehicleCoverages domain 0,* class VehicleCoverageRequest)
+                property autoExpand "true"
+                property beanConstructor "true"
+                property groups "BALA"
+                property prototype "true";
+    public AutoQuoteRequest()
+                property "dataio.default" "true";
+    public void addTo_drivers(Driver drivers)
+                property collectionAttribute "drivers"
+                property update "true";
+    public void addTo_vehicleCoverages(VehicleCoverageRequest vehicleCoverages)
+                property collectionAttribute "vehicleCoverages"
+                property update "true";
+    public void clear_drivers()
+                property collectionAttribute "drivers"
+                property update "true";
+    public void clear_vehicleCoverages()
+                property collectionAttribute "vehicleCoverages"
+                property update "true";
+    public void removeFrom_drivers(Driver drivers)
+                property collectionAttribute "drivers"
+                property update "true";
+    public void removeFrom_vehicleCoverages(VehicleCoverageRequest vehicleCoverages)
+                property collectionAttribute "vehicleCoverages"
+                property update "true";
+    public void set_drivers(java.util.Collection drivers domain 0,* class Driver)
+                property collectionAttribute "drivers"
+                property update "true";
+    public void set_vehicleCoverages(java.util.Collection vehicleCoverages domain 0,* class VehicleCoverageRequest)
+                property collectionAttribute "vehicleCoverages"
+                property update "true";
+}
+
+public class AutoQuoteResponse
+        property "ads.typeId" "13"
+        property "com.fasterxml.jackson.annotation.JsonTypeName" "autoQuoteResponse"
+        property "de.generated" "true"
+{
+    public java.util.List discount domain 0,* class LineItem
+                property "ads.attributeId" "6"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "discount"
+                property update "true";
+    public java.util.List messages domain 0,* class string
+                property "ads.attributeId" "2"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "messages"
+                property update "true";
+    public java.util.List surcharge domain 0,* class LineItem
+                property "ads.attributeId" "1"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "surcharge"
+                property update "true";
+    public double totalPrice
+                property "ads.attributeId" "3"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "totalPrice"
+                property update "true";
+    public java.util.List vehicleQuotes domain 0,* class VehicleQuoteItem
+                property "ads.attributeId" "7"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "vehicleQuotes"
+                property update "true";
+    public AutoQuoteResponse(java.util.List discount domain 0,* class LineItem, 
+        java.util.List messages domain 0,* class string, 
+        java.util.List surcharge domain 0,* class LineItem, 
+        double totalPrice, 
+        java.util.List vehicleQuotes domain 0,* class VehicleQuoteItem)
+                property autoExpand "true"
+                property beanConstructor "true"
+                property groups "BALA"
+                property prototype "true";
+    public AutoQuoteResponse()
+                property "dataio.default" "true";
+    public void addTo_discount(LineItem discount)
+                property collectionAttribute "discount"
+                property update "true";
+    public void addTo_messages(string messages)
+                property collectionAttribute "messages"
+                property update "true";
+    public void addTo_surcharge(LineItem surcharge)
+                property collectionAttribute "surcharge"
+                property update "true";
+    public void addTo_vehicleQuotes(VehicleQuoteItem vehicleQuotes)
+                property collectionAttribute "vehicleQuotes"
+                property update "true";
+    public void clear_discount()
+                property collectionAttribute "discount"
+                property update "true";
+    public void clear_messages()
+                property collectionAttribute "messages"
+                property update "true";
+    public void clear_surcharge()
+                property collectionAttribute "surcharge"
+                property update "true";
+    public void clear_vehicleQuotes()
+                property collectionAttribute "vehicleQuotes"
+                property update "true";
+    public void removeFrom_discount(LineItem discount)
+                property collectionAttribute "discount"
+                property update "true";
+    public void removeFrom_messages(string messages)
+                property collectionAttribute "messages"
+                property update "true";
+    public void removeFrom_surcharge(LineItem surcharge)
+                property collectionAttribute "surcharge"
+                property update "true";
+    public void removeFrom_vehicleQuotes(VehicleQuoteItem vehicleQuotes)
+                property collectionAttribute "vehicleQuotes"
+                property update "true";
+    public void set_discount(java.util.Collection discount domain 0,* class LineItem)
+                property collectionAttribute "discount"
+                property update "true";
+    public void set_messages(java.util.Collection messages domain 0,* class string)
+                property collectionAttribute "messages"
+                property update "true";
+    public void set_surcharge(java.util.Collection surcharge domain 0,* class LineItem)
+                property collectionAttribute "surcharge"
+                property update "true";
+    public void set_vehicleQuotes(java.util.Collection vehicleQuotes domain 0,* class VehicleQuoteItem)
+                property collectionAttribute "vehicleQuotes"
+                property update "true";
+}
+
+public class CoverageItem
+        property "ads.typeId" "1"
+        property "com.fasterxml.jackson.annotation.JsonTypeName" "coverageItem"
+        property "de.generated" "true"
+{
+    public CoverageType coverageType
+                property "ads.attributeId" "1"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "coverageType"
+                property update "true";
+    public java.lang.Long deductible
+                property "ads.attributeId" "5"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "deductible"
+                property update "true";
+    public java.lang.Long maxLimit
+                property "ads.attributeId" "6"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "maxLimit"
+                property update "true";
+    public java.lang.Long minLimit
+                property "ads.attributeId" "7"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "minLimit"
+                property update "true";
+    public CoverageItem(CoverageType coverageType, java.lang.Long deductible, java.lang.Long maxLimit, java.lang.Long minLimit)
+                property autoExpand "true"
+                property beanConstructor "true"
+                property groups "BALA"
+                property prototype "true";
+    public CoverageItem()
+                property "dataio.default" "true";
+}
+
+public class CoverageQuoteItem
+        property "ads.typeId" "3"
+        property "com.fasterxml.jackson.annotation.JsonTypeName" "coverageQuoteItem"
+        property "de.generated" "true"
+{
+    public LineItem base
+                property "ads.attributeId" "5"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "base"
+                property update "true";
+    public double coveragePrice
+                property "ads.attributeId" "2"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "coveragePrice"
+                property update "true";
+    public CoverageType coverageType
+                property "ads.attributeId" "1"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "coverageType"
+                property update "true";
+    public java.util.List discount domain 0,* class LineItem
+                property "ads.attributeId" "4"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "discount"
+                property update "true";
+    public java.util.List surcharge domain 0,* class LineItem
+                property "ads.attributeId" "3"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "surcharge"
+                property update "true";
+    public CoverageQuoteItem(LineItem base, 
+        double coveragePrice, 
+        CoverageType coverageType, 
+        java.util.List discount domain 0,* class LineItem, 
+        java.util.List surcharge domain 0,* class LineItem)
+                property autoExpand "true"
+                property beanConstructor "true"
+                property groups "BALA"
+                property prototype "true";
+    public CoverageQuoteItem()
+                property "dataio.default" "true";
+    public void addTo_discount(LineItem discount)
+                property collectionAttribute "discount"
+                property update "true";
+    public void addTo_surcharge(LineItem surcharge)
+                property collectionAttribute "surcharge"
+                property update "true";
+    public void clear_discount()
+                property collectionAttribute "discount"
+                property update "true";
+    public void clear_surcharge()
+                property collectionAttribute "surcharge"
+                property update "true";
+    public void removeFrom_discount(LineItem discount)
+                property collectionAttribute "discount"
+                property update "true";
+    public void removeFrom_surcharge(LineItem surcharge)
+                property collectionAttribute "surcharge"
+                property update "true";
+    public void set_discount(java.util.Collection discount domain 0,* class LineItem)
+                property collectionAttribute "discount"
+                property update "true";
+    public void set_surcharge(java.util.Collection surcharge domain 0,* class LineItem)
+                property collectionAttribute "surcharge"
+                property update "true";
+}
+
+public class CoverageType
+        extends java.lang.Enum
+        property "ads.typeId" "2"
+        property "com.fasterxml.jackson.annotation.JsonTypeName" "coverageType"
+        property "de.generated" "true"
+{
+    domain {static collision, static comprehensive, static liability, static mechanicalBreakdown, static uninsuredAndUnderinsured}
+    public static final readonly CoverageType collision
+                property "ads.attributeId" "5"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "collision";
+    public static final readonly CoverageType comprehensive
+                property "ads.attributeId" "4"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "comprehensive";
+    public static final readonly CoverageType liability
+                property "ads.attributeId" "3"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "liability";
+    public static final readonly CoverageType mechanicalBreakdown
+                property "ads.attributeId" "2"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "mechanicalBreakdown";
+    public static final readonly CoverageType uninsuredAndUnderinsured
+                property "ads.attributeId" "1"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "uninsuredAndUnderinsured";
+}
+
+public class Driver
+        property "ads.typeId" "12"
+        property "com.fasterxml.jackson.annotation.JsonTypeName" "driver"
+        property "de.generated" "true"
+{
+    public java.lang.Long age
+                property "ads.attributeId" "2"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "age"
+                property update "true";
+    public boolean completedDriversEducationCourse
+                property "ads.attributeId" "1"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "completedDriversEducationCourse"
+                property update "true";
+    public boolean convictedOfADUI
+                property "ads.attributeId" "5"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "convictedOfADUI"
+                property update "true";
+    public java.lang.Long driverId
+                property "ads.attributeId" "20"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "driverId"
+                property update "true";
+    public string drivingLicenseNumber
+                property "ads.attributeId" "4"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "drivingLicenseNumber"
+                property update "true";
+    public ilog.rules.brl.SimpleDate firstDrivingLicenseDate
+                property "ads.attributeId" "6"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "firstDrivingLicenseDate"
+                property update "true";
+    public string firstName
+                property "ads.attributeId" "7"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "firstName"
+                property update "true";
+    public boolean fullTimeStudent
+                property "ads.attributeId" "8"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "full time student"
+                property update "true";
+    public GenderType gender
+                property "ads.attributeId" "9"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "gender"
+                property update "true";
+    public boolean goodStudentCertificate
+                property "ads.attributeId" "10"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "good student certificate"
+                property update "true";
+    public boolean graduated
+                property "ads.attributeId" "11"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "graduated"
+                property update "true";
+    public string lastName
+                property "ads.attributeId" "12"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "last name"
+                property update "true";
+    public boolean licenseSuspendedOrRevoked
+                property "ads.attributeId" "13"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "license suspended or revoked"
+                property update "true";
+    public boolean married
+                property "ads.attributeId" "21"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "married"
+                property update "true";
+    public java.lang.Long numberOfAccidents
+                property "ads.attributeId" "15"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "number of accidents"
+                property update "true";
+    public java.lang.Long numberOfTrafficTickets
+                property "ads.attributeId" "16"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "number of traffic tickets"
+                property update "true";
+    public string occupation
+                property "ads.attributeId" "17"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "occupation"
+                property update "true";
+    public string stateOfResidence
+                property "ads.attributeId" "18"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "state of residence"
+                property update "true";
+    public boolean vehicleVandalizedOrStolen
+                property "ads.attributeId" "19"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "vehicle vandalized or stolen"
+                property update "true";
+    public Driver(java.lang.Long age, 
+        boolean completedDriversEducationCourse, 
+        boolean convictedOfADUI, 
+        java.lang.Long driverId, 
+        string drivingLicenseNumber, 
+        ilog.rules.brl.SimpleDate firstDrivingLicenseDate, 
+        string firstName, 
+        boolean fullTimeStudent, 
+        GenderType gender, 
+        boolean goodStudentCertificate, 
+        boolean graduated, 
+        string lastName, 
+        boolean licenseSuspendedOrRevoked, 
+        boolean married, 
+        java.lang.Long numberOfAccidents, 
+        java.lang.Long numberOfTrafficTickets, 
+        string occupation, 
+        string stateOfResidence, 
+        boolean vehicleVandalizedOrStolen)
+                property autoExpand "true"
+                property beanConstructor "true"
+                property groups "BALA"
+                property prototype "true";
+    public Driver()
+                property "dataio.default" "true";
+}
+
+public class EligibilityResponse
+        property "ads.typeId" "17"
+        property "com.fasterxml.jackson.annotation.JsonTypeName" "eligibilityResponse"
+        property "de.generated" "true"
+{
+    public boolean eligible
+                property "ads.attributeId" "2"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "eligible"
+                property update "true";
+    public java.util.List errorMessages domain 0,* class string
+                property "ads.attributeId" "1"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "errorMessages"
+                property update "true";
+    public string mainMessage
+                property "ads.attributeId" "3"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "mainMessage"
+                property update "true";
+    public EligibilityResponse(boolean eligible, 
+        java.util.List errorMessages domain 0,* class string, 
+        string mainMessage)
+                property autoExpand "true"
+                property beanConstructor "true"
+                property groups "BALA"
+                property prototype "true";
+    public EligibilityResponse()
+                property "dataio.default" "true";
+    public void addTo_errorMessages(string errorMessages)
+                property collectionAttribute "errorMessages"
+                property update "true";
+    public void clear_errorMessages()
+                property collectionAttribute "errorMessages"
+                property update "true";
+    public void removeFrom_errorMessages(string errorMessages)
+                property collectionAttribute "errorMessages"
+                property update "true";
+    public void set_errorMessages(java.util.Collection errorMessages domain 0,* class string)
+                property collectionAttribute "errorMessages"
+                property update "true";
+}
+
+public class EligibilityType
+        extends java.lang.Enum
+        property "ads.typeId" "18"
+        property "com.fasterxml.jackson.annotation.JsonTypeName" "eligibilityType"
+        property "de.generated" "true"
+{
+    domain {static eligible, static ineligible, static manual}
+    public static final readonly EligibilityType eligible
+                property "ads.attributeId" "3"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "eligible";
+    public static final readonly EligibilityType ineligible
+                property "ads.attributeId" "2"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "ineligible";
+    public static final readonly EligibilityType manual
+                property "ads.attributeId" "1"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "manual";
+}
+
+public class GenderType
+        extends java.lang.Enum
+        property "ads.typeId" "16"
+        property "com.fasterxml.jackson.annotation.JsonTypeName" "genderType"
+        property "de.generated" "true"
+{
+    domain {static female, static male}
+    public static final readonly GenderType female
+                property "ads.attributeId" "2"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "female";
+    public static final readonly GenderType male
+                property "ads.attributeId" "1"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "male";
+}
+
+public class LineItem
+        property "ads.typeId" "14"
+        property "com.fasterxml.jackson.annotation.JsonTypeName" "lineItem"
+        property "de.generated" "true"
+{
+    public string message
+                property "ads.attributeId" "1"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "message"
+                property update "true";
+    public double value
+                property "ads.attributeId" "2"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "value"
+                property update "true";
+    public LineItem(string message, double value)
+                property autoExpand "true"
+                property beanConstructor "true"
+                property groups "BALA"
+                property prototype "true";
+    public LineItem()
+                property "dataio.default" "true";
+}
+
+public class ValidationResponse
+        property "ads.typeId" "20"
+        property "com.fasterxml.jackson.annotation.JsonTypeName" "validationResponse"
+        property "de.generated" "true"
+{
+    public java.util.List errorMessages domain 0,* class string
+                property "ads.attributeId" "1"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "errorMessages"
+                property update "true";
+    public boolean validated
+                property "ads.attributeId" "3"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "validated"
+                property update "true";
+    public ValidationResponse(java.util.List errorMessages domain 0,* class string, 
+        boolean validated)
+                property autoExpand "true"
+                property beanConstructor "true"
+                property groups "BALA"
+                property prototype "true";
+    public ValidationResponse()
+                property "dataio.default" "true";
+    public void addTo_errorMessages(string errorMessages)
+                property collectionAttribute "errorMessages"
+                property update "true";
+    public void clear_errorMessages()
+                property collectionAttribute "errorMessages"
+                property update "true";
+    public void removeFrom_errorMessages(string errorMessages)
+                property collectionAttribute "errorMessages"
+                property update "true";
+    public void set_errorMessages(java.util.Collection errorMessages domain 0,* class string)
+                property collectionAttribute "errorMessages"
+                property update "true";
+}
+
+public class Vehicle
+        property "ads.typeId" "4"
+        property "com.fasterxml.jackson.annotation.JsonTypeName" "vehicle"
+        property "de.generated" "true"
+{
+    public AirbagType airBagType
+                property "ads.attributeId" "6"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "airBagType"
+                property update "true";
+    public boolean antiLockBrakes
+                property "ads.attributeId" "8"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "antiLockBrakes"
+                property update "true";
+    public boolean dayTimeRunningLights
+                property "ads.attributeId" "9"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "dayTimeRunningLights"
+                property update "true";
+    public string make
+                property "ads.attributeId" "2"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "make"
+                property update "true";
+    public string model
+                property "ads.attributeId" "3"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "model"
+                property update "true";
+    public ilog.rules.brl.SimpleDate registrationDate
+                property "ads.attributeId" "4"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "registrationDate"
+                property update "true";
+    public java.lang.Long value
+                property "ads.attributeId" "10"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "value"
+                property update "true";
+    public string vehicleIdentificationNumber
+                property "ads.attributeId" "5"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "vehicleIdentificationNumber"
+                property update "true";
+    public VehicleType vehicleType
+                property "ads.attributeId" "1"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "vehicleType"
+                property update "true";
+    public Vehicle(AirbagType airBagType, 
+        boolean antiLockBrakes, 
+        boolean dayTimeRunningLights, 
+        string make, 
+        string model, 
+        ilog.rules.brl.SimpleDate registrationDate, 
+        java.lang.Long value, 
+        string vehicleIdentificationNumber, 
+        VehicleType vehicleType)
+                property autoExpand "true"
+                property beanConstructor "true"
+                property groups "BALA"
+                property prototype "true";
+    public Vehicle()
+                property "dataio.default" "true";
+}
+
+public class VehicleCoverageRequest
+        property "ads.typeId" "8"
+        property "com.fasterxml.jackson.annotation.JsonTypeName" "vehicleCoverageRequest"
+        property "de.generated" "true"
+{
+    public double annualMileage
+                property "ads.attributeId" "1"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "annualMileage"
+                property update "true";
+    public java.util.List coverages domain 0,* class CoverageItem
+                property "ads.attributeId" "2"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "coverages"
+                property update "true";
+    public string oneWayDrivingDistance
+                property "ads.attributeId" "3"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "oneWayDrivingDistance"
+                property update "true";
+    public java.util.List usages domain 0,* class VehicleUsage
+                property "ads.attributeId" "6"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "usages"
+                property update "true";
+    public Vehicle vehicle
+                property "ads.attributeId" "5"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "vehicle"
+                property update "true";
+    public VehicleCoverageRequest(double annualMileage, 
+        java.util.List coverages domain 0,* class CoverageItem, 
+        string oneWayDrivingDistance, 
+        java.util.List usages domain 0,* class VehicleUsage, 
+        Vehicle vehicle)
+                property autoExpand "true"
+                property beanConstructor "true"
+                property groups "BALA"
+                property prototype "true";
+    public VehicleCoverageRequest()
+                property "dataio.default" "true";
+    public void addTo_coverages(CoverageItem coverages)
+                property collectionAttribute "coverages"
+                property update "true";
+    public void addTo_usages(VehicleUsage usages)
+                property collectionAttribute "usages"
+                property update "true";
+    public void clear_coverages()
+                property collectionAttribute "coverages"
+                property update "true";
+    public void clear_usages()
+                property collectionAttribute "usages"
+                property update "true";
+    public void removeFrom_coverages(CoverageItem coverages)
+                property collectionAttribute "coverages"
+                property update "true";
+    public void removeFrom_usages(VehicleUsage usages)
+                property collectionAttribute "usages"
+                property update "true";
+    public void set_coverages(java.util.Collection coverages domain 0,* class CoverageItem)
+                property collectionAttribute "coverages"
+                property update "true";
+    public void set_usages(java.util.Collection usages domain 0,* class VehicleUsage)
+                property collectionAttribute "usages"
+                property update "true";
+}
+
+public class VehicleQuoteItem
+        property "ads.typeId" "7"
+        property "com.fasterxml.jackson.annotation.JsonTypeName" "vehicleQuoteItem"
+        property "de.generated" "true"
+{
+    public java.util.List coverageQuotes domain 0,* class CoverageQuoteItem
+                property "ads.attributeId" "4"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "coverageQuotes"
+                property update "true";
+    public double totalVehiclePrice
+                property "ads.attributeId" "2"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "totalVehiclePrice"
+                property update "true";
+    public string vehicleIdentificationNumber
+                property "ads.attributeId" "3"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "vehicleIdentificationNumber"
+                property update "true";
+    public VehicleQuoteItem(java.util.List coverageQuotes domain 0,* class CoverageQuoteItem, 
+        double totalVehiclePrice, 
+        string vehicleIdentificationNumber)
+                property autoExpand "true"
+                property beanConstructor "true"
+                property groups "BALA"
+                property prototype "true";
+    public VehicleQuoteItem()
+                property "dataio.default" "true";
+    public void addTo_coverageQuotes(CoverageQuoteItem coverageQuotes)
+                property collectionAttribute "coverageQuotes"
+                property update "true";
+    public void clear_coverageQuotes()
+                property collectionAttribute "coverageQuotes"
+                property update "true";
+    public void removeFrom_coverageQuotes(CoverageQuoteItem coverageQuotes)
+                property collectionAttribute "coverageQuotes"
+                property update "true";
+    public void set_coverageQuotes(java.util.Collection coverageQuotes domain 0,* class CoverageQuoteItem)
+                property collectionAttribute "coverageQuotes"
+                property update "true";
+}
+
+public class VehicleType
+        extends java.lang.Enum
+        property "ads.typeId" "5"
+        property "com.fasterxml.jackson.annotation.JsonTypeName" "vehicleType"
+        property "de.generated" "true"
+{
+    domain {static coupé, static pickup, static sUV, static sedan, static sportsCoupé}
+    public static final readonly VehicleType coupé
+                property "ads.attributeId" "5"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "coupé";
+    public static final readonly VehicleType pickup
+                property "ads.attributeId" "4"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "pickup";
+    public static final readonly VehicleType sUV
+                property "ads.attributeId" "1"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "SUV";
+    public static final readonly VehicleType sedan
+                property "ads.attributeId" "2"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "sedan";
+    public static final readonly VehicleType sportsCoupé
+                property "ads.attributeId" "3"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "sportsCoupé";
+}
+
+public class VehicleUsage
+        property "ads.typeId" "9"
+        property "com.fasterxml.jackson.annotation.JsonTypeName" "vehicleUsage"
+        property "de.generated" "true"
+{
+    public java.lang.Long driverId
+                property "ads.attributeId" "3"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "driverId"
+                property update "true";
+    public java.lang.Long percentageUsage
+                property "ads.attributeId" "2"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "percentageUsage"
+                property update "true";
+    public VehicleUsage(java.lang.Long driverId, java.lang.Long percentageUsage)
+                property autoExpand "true"
+                property beanConstructor "true"
+                property groups "BALA"
+                property prototype "true";
+    public VehicleUsage()
+                property "dataio.default" "true";
+}
+

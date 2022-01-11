@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.brl:ActionRule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.brl="http://ilog.rules.studio/model/brl.ecore">
+  <name>Liability - SUV Surcharge</name>
+  <uuid>9c78b4ad-b8b2-47c1-9681-b11d38dc6937</uuid>
+  <locale>en_US</locale>
+  <definition><![CDATA[if
+    the coverage type of 'coverage request' is liability and
+    the vehicle type of the vehicle of 'vehicle coverage request' is SUV  
+then
+    add a new line item where
+        the message is "Sports Utility Vehicle surcharge", 
+        the value is (2 * the value of 'base premium') / 100 
+   to decision ;
+
+
+
+
+]]></definition>
+</ilog.rules.studio.model.brl:ActionRule>

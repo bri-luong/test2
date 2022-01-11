@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.brl:ActionRule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.brl="http://ilog.rules.studio/model/brl.ecore">
+  <name>Driver Ed Discount</name>
+  <uuid>448bd364-16bb-4628-8a38-b1769316dec9</uuid>
+  <locale>en_US</locale>
+  <definition><![CDATA[for each driver, in the drivers of request 
+if
+    this driver is completed drivers education course  
+    and the number of accidents of this driver is 0
+then
+    add a new line item where 
+       the value is (2 * 'price') / 100,
+       the message is "Good Driver Discount" 
+    to decision;
+
+
+
+
+]]></definition>
+</ilog.rules.studio.model.brl:ActionRule>

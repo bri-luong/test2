@@ -1,0 +1,141 @@
+{
+  "request": {
+    "drivers": [
+      {
+        "driver id": 1,
+        "first name": "John",
+        "last name": "Doe",
+        "age": 24,
+        "state of residence": "CA",
+        "occupation": "Engineer",
+        "gender": "male",
+        "graduated": false,
+        "married": false,
+        "good student certificate": false,
+        "driving license number": "123456789",
+        "first driving license date": "1999-03-20",
+        "completed drivers education course": false,
+        "license suspended or revoked": false,
+        "number of accidents": 1,
+        "number of traffic tickets": 0,
+        "convicted of a DUI": false,
+        "full time student": false,
+        "vehicle vandalized or stolen": false
+      },
+      {
+        "driver id": 2,
+        "first name": "Alice",
+        "last name": "Fan",
+        "age": 22,
+        "state of residence": "CA",
+        "occupation": "Student",
+        "gender": "female",
+        "married": false,
+        "graduated": false,
+        "full time student": false,
+        "good student certificate": false,
+        "driving license number": "283798753",
+        "first driving license date": "2000-09-12",
+        "completed drivers education course": true,
+        "vehicle vandalized or stolen": false,
+        "license suspended or revoked": false,
+        "number of accidents": 1,
+        "number of traffic tickets": 0,
+        "convicted of a DUI": false
+      }
+    ],
+    "vehicle coverages": [
+      {
+        "vehicle": {
+          "vehicle identification number": "VIN-1",
+          "vehicle type": "coupé",
+          "air bag type": "none",
+          "anti lock brakes": false,
+          "day time running lights": false,
+          "make": "Ford",
+          "model": "Taurus",
+          "registration date": "1999-01-01",
+          "value": 35000
+        },
+        "usages": [
+          {
+            "driver id": 1,
+            "percentage usage": 40
+          },
+          {
+            "driver id": 2,
+            "percentage usage": 60
+          }
+        ],
+        "coverages": [
+          {
+            "coverage type": "liability",
+            "max limit": 50000,
+            "min limit": 25000,
+            "deductible": 0
+          },
+          {
+            "coverage type": "uninsured and underinsured",
+            "deductible": 0,
+            "max limit": 60000,
+            "min limit": 30000
+          },
+          {
+            "coverage type": "collision",
+            "deductible": 250,
+            "max limit": 0,
+            "min limit": 0
+          }
+        ],
+        "annual mileage": 5000,
+        "one way driving distance": "5.0"
+      },
+      {
+        "vehicle": {
+          "vehicle identification number": "VIN-2",
+          "vehicle type": "coupé",
+          "air bag type": "driver passenger",
+          "anti lock brakes": true,
+          "day time running lights": false,
+          "make": "Toyota",
+          "model": "Corolla",
+          "registration date": "2000-01-01",
+          "value": 28000
+        },
+        "annual mileage": 5000,
+        "one way driving distance": "5.0",
+        "usages": [
+          {
+            "driver id": 1,
+            "percentage usage": 30
+          },
+          {
+            "driver id": 2,
+            "percentage usage": 70
+          }
+        ],
+        "coverages": [
+          {
+            "coverage type": "liability",
+            "max limit": 50000,
+            "min limit": 25000,
+            "deductible": 0
+          },
+          {
+            "coverage type": "uninsured and underinsured",
+            "max limit": 60000,
+            "min limit": 30000,
+            "deductible": 0
+          },
+          {
+            "coverage type": "comprehensive",
+            "deductible": 500,
+            "max limit": 0,
+            "min limit": 0
+          }
+        ]
+      }
+    ]
+  },
+  "today": "2020-06-09"
+}

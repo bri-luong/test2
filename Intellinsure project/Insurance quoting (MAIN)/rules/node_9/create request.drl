@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.brl:ActionRule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.brl="http://ilog.rules.studio/model/brl.ecore">
+  <name>create request</name>
+  <uuid>ef97cc23-e6c8-4e0c-a049-e01156b04884</uuid>
+  <locale>en_US</locale>
+  <definition><![CDATA[if
+    the number of elements in 'validation errors' is 0
+then 
+    set decision to request ;
+
+
+]]></definition>
+</ilog.rules.studio.model.brl:ActionRule>

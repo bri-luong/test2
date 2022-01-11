@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.brl:ActionRule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.brl="http://ilog.rules.studio/model/brl.ecore">
+  <name>Too Old</name>
+  <uuid>e16173f3-ed6a-4910-a441-ae33b495e1c2</uuid>
+  <locale>en_US</locale>
+  <definition><![CDATA[for each driver, in the drivers of 'validated request' 
+definitions
+    set 'name' to the first name of this driver ;
+if
+    the age of this driver is more than 80 
+then
+set decision to a new eligibility response where
+        eligible is false, 
+        the main message is "Intellinsure does not assure individuals who are 80 years of age or older (" + name + ")" ;
+]]></definition>
+</ilog.rules.studio.model.brl:ActionRule>

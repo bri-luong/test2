@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.brl:ActionRule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.brl="http://ilog.rules.studio/model/brl.ecore">
+  <name>create quote item</name>
+  <uuid>fd39fc1d-241f-40f4-a0f2-1c485b905b41</uuid>
+  <locale>en_US</locale>
+  <definition><![CDATA[set decision to a new vehicle quote item where
+    the vehicle identification number is the vehicle identification number of the vehicle of 'vehicle coverage request' ,
+    the coverage quotes are 'Coverage quotes' ,
+    the total vehicle price is the total coverage price of 'Coverage quotes' ;
+        
+
+
+
+
+]]></definition>
+</ilog.rules.studio.model.brl:ActionRule>

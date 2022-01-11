@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.brl:ActionRule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.brl="http://ilog.rules.studio/model/brl.ecore">
+  <name>New Vehicle Discount</name>
+  <uuid>ac8edf04-7ab0-473b-b9c3-0a9e1c78502d</uuid>
+  <locale>en_US</locale>
+  <definition><![CDATA[if
+   the coverage type of 'coverage request' is mechanical breakdown and 
+   the number of years between the registration date of the vehicle of 'vehicle coverage request' and today is at most 3
+then
+    add a new line item where 
+       the value is (15 * the value of 'base premium') / 100,
+       the message is "New vehicle discount"
+    to decision;
+
+
+]]></definition>
+</ilog.rules.studio.model.brl:ActionRule>
